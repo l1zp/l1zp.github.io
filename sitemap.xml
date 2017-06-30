@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l1zp.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-06-30T18:08:11.323Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/tags/index.html</loc>
+    
+    <lastmod>2017-06-30T18:07:35.845Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://l1zp.github.io/2017/06/26/build-hexo-github-pages/</loc>
     
     <lastmod>2017-06-30T17:41:27.238Z</lastmod>
@@ -44,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://l1zp.github.io/2017/06/21/basic-resgular-expressions/</loc>
-    
-    <lastmod>2017-06-26T12:19:33.365Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://l1zp.github.io/2017/06/13/google-search-blogs/</loc>
     
     <lastmod>2017-06-26T12:19:33.365Z</lastmod>
@@ -59,6 +66,13 @@
   
   <url>
     <loc>https://l1zp.github.io/2017/06/26/hello-world/</loc>
+    
+    <lastmod>2017-06-26T12:19:33.365Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/2017/06/21/basic-resgular-expressions/</loc>
     
     <lastmod>2017-06-26T12:19:33.365Z</lastmod>
     

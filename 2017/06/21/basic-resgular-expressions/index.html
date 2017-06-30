@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -104,7 +104,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -133,7 +133,7 @@
   <title> 正则表达式基础介绍 | 大四狗肉馆 </title>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
 
@@ -197,6 +197,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
           </a>
         </li>
       
@@ -320,6 +330,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/21/basic-resgular-expressions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/21/basic-resgular-expressions/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -474,6 +495,13 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -530,10 +558,10 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
-              
+              </a>
             </div>
           
 
@@ -541,10 +569,10 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">tags</span>
-              
+              </a>
             </div>
           
 
@@ -602,7 +630,7 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-lizp"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Light Lee</span>
 </div>
@@ -615,7 +643,7 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -689,6 +717,13 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
@@ -704,6 +739,26 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
 
   
 
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-l1zp-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://l1zp.github.io/2017/06/21/basic-resgular-expressions/';
+          this.page.identifier = '2017/06/21/basic-resgular-expressions/';
+          this.page.title = '正则表达式基础介绍';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-l1zp-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
 
   
 
