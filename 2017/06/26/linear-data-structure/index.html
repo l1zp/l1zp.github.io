@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T20:22:40+08:00">
                 2017-06-26
@@ -305,7 +305,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -360,24 +360,24 @@
 <li><code>size()</code></li>
 </ul>
 <p>The implementation is:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Stack</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<pre class=" language-lang-python"><code class="language-lang-python">class Stack:
+    def __init__(self):
+        self.items = []
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def isEmpty(self):
+        return self.items == []
 
-    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+    def push(self, item):
+        self.items.append(item)
 
-    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def pop(self):
+        return self.items.pop()
 
-    <span class="token keyword">def</span> <span class="token function">peek</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">[</span>len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+    def peek(self):
+        return self.items[len(self.items) - 1]
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span>
+    def size(self):
+        return len(self.items)
 </code></pre>
 <h3 id="Queue-abstract-data-type"><a href="#Queue-abstract-data-type" class="headerlink" title="Queue abstract data type"></a>Queue abstract data type</h3><ul>
 <li><code>Queue()</code> return empty queue</li>
@@ -387,22 +387,22 @@
 <li><code>size()</code></li>
 </ul>
 <p>The implementation is: </p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Queue</span><span class="token punctuation">:</span>
+<pre class=" language-lang-python"><code class="language-lang-python">class Queue:
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def __init__(self):
+        self.items = []
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def isEmpty(self):
+        return self.items == []
 
-    <span class="token keyword">def</span> <span class="token function">enqueue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span>
+    def enqueue(self, item):
+        self.items.insert(0, item)
 
-    <span class="token keyword">def</span> <span class="token function">dequeue</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def dequeue(self):
+        return self.items.pop()
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span>
+    def size(self):
+        return len(self.items)
 </code></pre>
 <h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>A deque, also known as a double-ended queue, is an ordered collection of items similar to the queue</p>
 <ul>
@@ -429,72 +429,72 @@
 <li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
 </ul>
 <p>Implementation Linked Lists</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> initData<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>data <span class="token operator">=</span> initData
-        self<span class="token punctuation">.</span>next <span class="token operator">=</span> None
+<pre class=" language-lang-python"><code class="language-lang-python">class Node:
+    def __init__(self, initData):
+        self.data = initData
+        self.next = None
 
-    <span class="token keyword">def</span> <span class="token function">getData</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>data
+    def getData(self):
+        return self.data
 
-    <span class="token keyword">def</span> <span class="token function">getNext</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>next
+    def getNext(self):
+        return self.next
 
-    <span class="token keyword">def</span> <span class="token function">setData</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> newData<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>data <span class="token operator">=</span> newData
+    def setData(self, newData):
+        self.data = newData
 
-    <span class="token keyword">def</span> <span class="token function">setNext</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> newNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+    def setNext(self, newNode):
+        self.next = newNode
 
-<span class="token keyword">class</span> <span class="token class-name">UnorderedList</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>head <span class="token operator">=</span> None
+class UnorderedList:
+    def __init__(self):
+        self.head = None
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>head <span class="token operator">==</span> None
+    def isEmpty(self):
+        return self.head == None
 
-    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        temp <span class="token operator">=</span> Node<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-        temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>self<span class="token punctuation">.</span>head<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>head <span class="token operator">=</span> temp
+    def add(self, item):
+        temp = Node(item)
+        temp.setNext(self.head)
+        self.head = temp
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        count <span class="token operator">=</span> <span class="token number">0</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            count <span class="token operator">+=</span> <span class="token number">1</span>
+    def size(self):
+        count = 0
+        current = self.head
+        while current != None:
+            current = current.getNext()
+            count += 1
 
-        <span class="token keyword">return</span> count
+        return count
 
-    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        found <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> item <span class="token operator">==</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                found <span class="token operator">=</span> <span class="token boolean">True</span>
-                <span class="token keyword">break</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def search(self, item):
+        current = self.head
+        found = False
+        while current != None:
+            if item == current.getData():
+                found = True
+                break
+            else:
+                current = current.getNext()
 
-        <span class="token keyword">return</span> found
+        return found
 
-    <span class="token keyword">def</span> <span class="token function">remove</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        found <span class="token operator">=</span> <span class="token boolean">False</span>
-        previous <span class="token operator">=</span> None
+    def remove(self, item):
+        current = self.head
+        found = False
+        previous = None
 
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> item <span class="token operator">==</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">break</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                previous <span class="token operator">=</span> current
-                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        while current != None:
+            if item == current.getData():
+                break
+            else:
+                previous = current
+                current = current.getNext()
 
-            <span class="token keyword">if</span> previous <span class="token operator">==</span> None<span class="token punctuation">:</span>
-                self<span class="token punctuation">.</span>head <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                previous<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            if previous == None:
+                self.head = current.getNext()
+            else:
+                previous.setNext(current.getNext())
 </code></pre>
 <p>Modify the append method to be O(1)</p>
 <h4 id="The-Ordered-List"><a href="#The-Ordered-List" class="headerlink" title="The Ordered List"></a>The Ordered List</h4><p>The structure of an ordered list is a collection of items where each item holds a relative position that is based upon some underlying characteristic of the item. </p>
@@ -510,66 +510,66 @@
 <li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
 </ul>
 <p>implement</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> Node <span class="token keyword">import</span> Node
+<pre class=" language-lang-python"><code class="language-lang-python">from Node import Node
 
-<span class="token keyword">class</span> <span class="token class-name">OrderedList</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>head <span class="token operator">=</span> None
+class OrderedList:
+    def __init__(self):
+        self.head = None
 
-    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> item<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">True</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> item<span class="token punctuation">:</span>
-                    <span class="token keyword">return</span> <span class="token boolean">False</span>
+    def search(self, item):
+        current = self.head
+        while current != None:
+            if current.getData() == item:
+                return True
+            else:
+                if current.getData() > item:
+                    return False
 
-            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            current = current.getNext()
 
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
+        return False
 
-    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        previous <span class="token operator">=</span> None
-        stop <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None <span class="token operator">and</span> <span class="token operator">not</span> stop<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> item<span class="token punctuation">:</span>
-                stop <span class="token operator">=</span> <span class="token boolean">True</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                previous <span class="token operator">=</span> current
-                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def add(self,item):
+        current = self.head
+        previous = None
+        stop = False
+        while current != None and not stop:
+            if current.getData() > item:
+                stop = True
+            else:
+                previous = current
+                current = current.getNext()
 
-        temp <span class="token operator">=</span> Node<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> previous <span class="token operator">==</span> None<span class="token punctuation">:</span>
-            temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>self<span class="token punctuation">.</span>head<span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>head <span class="token operator">=</span> temp
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>current<span class="token punctuation">)</span>
-            previous<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+        temp = Node(item)
+        if previous == None:
+            temp.setNext(self.head)
+            self.head = temp
+        else:
+            temp.setNext(current)
+            previous.setNext(temp)
 
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>head <span class="token operator">==</span> None
+    def isEmpty(self):
+        return self.head == None
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        count <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            count <span class="token operator">+=</span> <span class="token number">1</span>
-            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def size(self):
+        current = self.head
+        count = 0
+        while current != None:
+            count += 1
+            current = current.getNext()
 
-        <span class="token keyword">return</span> count
+        return count
 </code></pre>
-<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    stuff<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token operator">not</span> condition<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
+<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><pre class=" language-lang-python"><code class="language-lang-python">while True:
+    stuff()
+    if not condition():
+        break
 </code></pre>
 <p>equals:</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">do</span> <span class="token punctuation">{</span>
-    <span class="token function">stuff</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">condition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class=" language-lang-java"><code class="language-lang-java">do {
+    stuff()
+} while (condition())
 </code></pre>
 
       
@@ -623,6 +623,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/06/30/machine-learning-w5/" rel="prev" title="ML(5) NN:Learning">
+                ML(5) NN:Learning <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -670,10 +674,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -693,8 +697,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -704,8 +708,8 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -716,7 +720,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -782,7 +786,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

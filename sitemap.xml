@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l1zp.github.io/2017/06/26/build-hexo-github-pages/</loc>
+    
+    <lastmod>2017-06-30T17:41:27.238Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/2017/06/30/machine-learning-w5/</loc>
+    
+    <lastmod>2017-06-30T17:41:27.238Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://l1zp.github.io/2017/06/26/linear-data-structure/</loc>
     
     <lastmod>2017-06-26T15:54:18.449Z</lastmod>
@@ -23,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://l1zp.github.io/2017/06/21/basic-resgular-expressions/</loc>
-    
-    <lastmod>2017-06-26T12:19:33.365Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://l1zp.github.io/2017/06/15/basic-markdown/</loc>
     
     <lastmod>2017-06-26T12:19:33.365Z</lastmod>
@@ -37,7 +44,7 @@
   </url>
   
   <url>
-    <loc>https://l1zp.github.io/2017/06/26/build-hexo-github-pages/</loc>
+    <loc>https://l1zp.github.io/2017/06/21/basic-resgular-expressions/</loc>
     
     <lastmod>2017-06-26T12:19:33.365Z</lastmod>
     

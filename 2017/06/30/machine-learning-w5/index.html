@@ -87,12 +87,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="大四狗肉馆">
-<meta property="og:url" content="https://l1zp.github.io/tags/SSH/index.html">
+<meta name="description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ML(5) NN:Learning">
+<meta property="og:url" content="https://l1zp.github.io/2017/06/30/machine-learning-w5/index.html">
 <meta property="og:site_name" content="大四狗肉馆">
+<meta property="og:description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
+<meta property="og:updated_time" content="2017-06-30T17:41:27.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大四狗肉馆">
+<meta name="twitter:title" content="ML(5) NN:Learning">
+<meta name="twitter:description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://l1zp.github.io/tags/SSH/"/>
+  <link rel="canonical" href="https://l1zp.github.io/2017/06/30/machine-learning-w5/"/>
 
 
 
 
 
-  <title> Tag: SSH | 大四狗肉馆 </title>
+  <title> ML(5) NN:Learning | 大四狗肉馆 </title>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -151,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,46 +239,238 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        SSH
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2017/06/30/machine-learning-w5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Light Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大四狗肉馆">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ML(5) NN:Learning
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T20:46:23+08:00">
+                2017-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>Neural network:</p>
+<p>cost function</p>
+<script type="math/tex; mode=display">h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} output</script><script type="math/tex; mode=display">J(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right]+\frac{\lambda}{2m}\sum^{L-1}_{l-1}\sum^{s_l}_{i=1}\sum^{s_l+1}_{j=1}(Θ^{(l)}_{ji})^2</script><ol>
+<li><p>Randomly initialize weights</p>
+</li>
+<li><p>Implement forward propagation to get $h_{Θ}(x^{(i)})$ for any $x^{(i)}$</p>
+</li>
+<li><p>Implement code to compute cost function $J(Θ)$</p>
+</li>
+<li><p>Imlement backpropagation to compute partial derivatives </p>
+<script type="math/tex; mode=display">\frac{\partial}{\partial Θ^l_{jk}}J(Θ)</script><ul>
+<li>Training set <script type="math/tex; mode=display">\left\{(x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)})\right\}</script></li>
+</ul>
+<ul>
+<li><p>Set $\Delta^{(l)}_{ij}=0$ (for all $l,i,j$)</p>
+<ul>
+<li><p>For i = 1 to m</p>
+<ul>
+<li>Set $a^{(1)} = x^{(i)}$</li>
+<li><p>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\ldots,L$ </p>
+<blockquote>
+<p>$a^{(1)} = x$<br>$z^{(2)} = Θ^{(1)}a^{(1)}$<br>$a^{(2)} = g(z^{(2)})(add\quad a^{(2)}_0$)</p>
+</blockquote>
+</li>
+<li><p>Using $y^{(i)}$, compute $\delta^{L}=a^{L}-y^{(i)}$</p>
+</li>
+<li><p>compute $\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$</p>
+<blockquote>
+<p>$\delta^{(4)}_j=a^{(4)}_j-y_j$<br>$\delta^{(3)}=(Θ^{(3)})^T\delta^{(4)}.*g^{\prime} (z^{(2)})$</p>
+</blockquote>
+</li>
+<li><script type="math/tex; mode=display">\Delta ^{(l)}_{ij}:= \Delta ^{(l)}_{ij}+a^{(l)}_j \delta ^{(l+1)}_i</script></li>
+<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij} \qquad for\quad j=0</script></li>
+<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij}+\frac{\lambda}m\Theta^{(l)}_{ij} \qquad for\quad j\geq1</script></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Use gradient checking to compare $\frac{\partial}{\partial Θ^l_{jk}}J(Θ)$ computed using backpropagation vs. using numerical estimate of gradient of $J(Θ)$</p>
+<ul>
+<li>Parameter vector $\theta$<ul>
+<li>$\theta \in \Bbb{R}^n$ (E.g. $\theta$ is “unrolled version of $Θ^{(1)}, Θ^{(2)}, Θ^{(3)})$</li>
+<li>$\theta = \theta_1, \theta_2, \ldots, \theta_n$</li>
+<li>$\frac{\partial}{\partial\theta_2}J(\theta) \approx \frac{J(\theta_1,\theta_2,\ldots,\theta_n+\varepsilon)-J(\theta_1,\theta_2,\ldots,\theta_n-\varepsilon)}{2\varepsilon}$<pre class=" language-lang-matlab"><code class="language-lang-matlab">for i = 1:n,
+thetaPlus = theta;
+thetaPlus(i) = thetaPlus(i) + EPSILON;
+thetaMinus = theta;
+thetaMinus(i) = thetaPlus(i) - EPSILON;
+gradApprox(i) = (J(thetaPlus)-J(thetaMinus))/(2*EPSILON);
+end;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Use gradien descent or advanced optimization method with backpropagation to minimize $J(Θ)$ as function of parameters $Θ$</p>
+<ul>
+<li>Initialize each $\Theta$ to random value in $\left[-\varepsilon, \varepsilon \right]$</li>
+<li>E.g.<pre class=" language-lang-matlab"><code class="language-lang-matlab">Theta1 = rand(10,11)*(2*INIT_EPSILON) - INIT_EPSILON;
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/06/19/ssk-key-github/" itemprop="url">
-              
-                <span itemprop="name">如何在GitHub中添加SSH key</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-19T21:52:04+08:00"
-              content="2017-06-19" >
-          06-19
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/26/linear-data-structure/" rel="next" title="Linear Data Structure">
+                <i class="fa fa-chevron-left"></i> Linear Data Structure
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -282,6 +478,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -471,6 +671,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

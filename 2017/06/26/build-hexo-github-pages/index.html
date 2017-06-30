@@ -94,7 +94,7 @@
 <meta property="og:url" content="https://l1zp.github.io/2017/06/26/build-hexo-github-pages/index.html">
 <meta property="og:site_name" content="大四狗肉馆">
 <meta property="og:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 $ npm install hexo-cli #安装Hexo  部署Hexo本地预览启动Hexo $ hexo g">
-<meta property="og:updated_time" content="2017-06-26T12:19:33.365Z">
+<meta property="og:updated_time" content="2017-06-30T17:41:27.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo + GitHub Pages 搭建个人博客">
 <meta name="twitter:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 $ npm install hexo-cli #安装Hexo  部署Hexo本地预览启动Hexo $ hexo g">
@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T20:19:33+08:00">
                 2017-06-26
@@ -305,7 +305,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -351,36 +351,38 @@
 <li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
 </ul>
 <h3 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>新建名为Hexo文件夹，在目录下运行</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-cli <span class="token comment" spellcheck="true">#安装Hexo</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-cli #安装Hexo
 </code></pre>
 <h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>启动Hexo</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo g <span class="token comment" spellcheck="true">#生成静态文件</span>
-$ hexo s <span class="token comment" spellcheck="true">#启动本地web服务</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g #生成静态文件
+$ hexo s #启动本地web服务
 </code></pre>
 <p>此时打开网址 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 可以看见内置的blog</p>
 <h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>以yilia为例</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> clone https://github.com/litten/hexo-theme-yilia.git themes/yilia <span class="token comment" spellcheck="true">#安装主题</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia #安装主题
 </code></pre>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> themes/yilia <span class="token comment" spellcheck="true">#更新主题</span>
-$ <span class="token function">git</span> pull
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ cd themes/yilia #更新主题
+$ git pull
 </code></pre>
 <p>重新启动Hexo，即可看见主题更新</p>
 <h2 id="部署Hexo到GitHub-Pages"><a href="#部署Hexo到GitHub-Pages" class="headerlink" title="部署Hexo到GitHub Pages"></a>部署Hexo到GitHub Pages</h2><h3 id="使用Hexo-deploy部署"><a href="#使用Hexo-deploy部署" class="headerlink" title="使用Hexo deploy部署"></a>使用Hexo deploy部署</h3><p>首先需要安装一个扩展</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-deployer-git --save
 </code></pre>
 <p>修改配置文件<code>/blog/_config.xml</code></p>
-<pre class=" language-bash"><code class="language-bash">deploy:
-  type: <span class="token function">git</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">deploy:
+  type: git
   repo: git@github.com:user/user.github.io.git
   branch: master
 </code></pre>
 <p>执行完成部署</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo d
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo d
 </code></pre>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>每次deploy之前要运行, 生成静态文件</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo g
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g
 </code></pre>
-
+<p>需要使用LaTeX时，记得开启</p>
+<pre><code>mathJax: true
+</code></pre>
       
     </div>
 
@@ -485,10 +487,10 @@ $ <span class="token function">git</span> pull
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -508,8 +510,8 @@ $ <span class="token function">git</span> pull
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -519,8 +521,8 @@ $ <span class="token function">git</span> pull
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -531,7 +533,7 @@ $ <span class="token function">git</span> pull
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -597,7 +599,7 @@ $ <span class="token function">git</span> pull
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -237,6 +237,215 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2017/06/30/machine-learning-w5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Light Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大四狗肉馆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/30/machine-learning-w5/" itemprop="url">
+                  ML(5) NN:Learning
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T20:46:23+08:00">
+                2017-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Neural network:</p>
+<p>cost function</p>
+<script type="math/tex; mode=display">h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} output</script><script type="math/tex; mode=display">J(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right]+\frac{\lambda}{2m}\sum^{L-1}_{l-1}\sum^{s_l}_{i=1}\sum^{s_l+1}_{j=1}(Θ^{(l)}_{ji})^2</script><ol>
+<li><p>Randomly initialize weights</p>
+</li>
+<li><p>Implement forward propagation to get $h_{Θ}(x^{(i)})$ for any $x^{(i)}$</p>
+</li>
+<li><p>Implement code to compute cost function $J(Θ)$</p>
+</li>
+<li><p>Imlement backpropagation to compute partial derivatives </p>
+<script type="math/tex; mode=display">\frac{\partial}{\partial Θ^l_{jk}}J(Θ)</script><ul>
+<li>Training set <script type="math/tex; mode=display">\left\{(x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)})\right\}</script></li>
+</ul>
+<ul>
+<li><p>Set $\Delta^{(l)}_{ij}=0$ (for all $l,i,j$)</p>
+<ul>
+<li><p>For i = 1 to m</p>
+<ul>
+<li>Set $a^{(1)} = x^{(i)}$</li>
+<li><p>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\ldots,L$ </p>
+<blockquote>
+<p>$a^{(1)} = x$<br>$z^{(2)} = Θ^{(1)}a^{(1)}$<br>$a^{(2)} = g(z^{(2)})(add\quad a^{(2)}_0$)</p>
+</blockquote>
+</li>
+<li><p>Using $y^{(i)}$, compute $\delta^{L}=a^{L}-y^{(i)}$</p>
+</li>
+<li><p>compute $\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$</p>
+<blockquote>
+<p>$\delta^{(4)}_j=a^{(4)}_j-y_j$<br>$\delta^{(3)}=(Θ^{(3)})^T\delta^{(4)}.*g^{\prime} (z^{(2)})$</p>
+</blockquote>
+</li>
+<li><script type="math/tex; mode=display">\Delta ^{(l)}_{ij}:= \Delta ^{(l)}_{ij}+a^{(l)}_j \delta ^{(l+1)}_i</script></li>
+<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij} \qquad for\quad j=0</script></li>
+<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij}+\frac{\lambda}m\Theta^{(l)}_{ij} \qquad for\quad j\geq1</script></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Use gradient checking to compare $\frac{\partial}{\partial Θ^l_{jk}}J(Θ)$ computed using backpropagation vs. using numerical estimate of gradient of $J(Θ)$</p>
+<ul>
+<li>Parameter vector $\theta$<ul>
+<li>$\theta \in \Bbb{R}^n$ (E.g. $\theta$ is “unrolled version of $Θ^{(1)}, Θ^{(2)}, Θ^{(3)})$</li>
+<li>$\theta = \theta_1, \theta_2, \ldots, \theta_n$</li>
+<li>$\frac{\partial}{\partial\theta_2}J(\theta) \approx \frac{J(\theta_1,\theta_2,\ldots,\theta_n+\varepsilon)-J(\theta_1,\theta_2,\ldots,\theta_n-\varepsilon)}{2\varepsilon}$<pre class=" language-lang-matlab"><code class="language-lang-matlab">for i = 1:n,
+thetaPlus = theta;
+thetaPlus(i) = thetaPlus(i) + EPSILON;
+thetaMinus = theta;
+thetaMinus(i) = thetaPlus(i) - EPSILON;
+gradApprox(i) = (J(thetaPlus)-J(thetaMinus))/(2*EPSILON);
+end;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Use gradien descent or advanced optimization method with backpropagation to minimize $J(Θ)$ as function of parameters $Θ$</p>
+<ul>
+<li>Initialize each $\Theta$ to random value in $\left[-\varepsilon, \varepsilon \right]$</li>
+<li>E.g.<pre class=" language-lang-matlab"><code class="language-lang-matlab">Theta1 = rand(10,11)*(2*INIT_EPSILON) - INIT_EPSILON;
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -284,7 +493,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T20:22:40+08:00">
                 2017-06-26
@@ -305,7 +514,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -362,24 +571,24 @@
 <li><code>size()</code></li>
 </ul>
 <p>The implementation is:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Stack</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<pre class=" language-lang-python"><code class="language-lang-python">class Stack:
+    def __init__(self):
+        self.items = []
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def isEmpty(self):
+        return self.items == []
 
-    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+    def push(self, item):
+        self.items.append(item)
 
-    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def pop(self):
+        return self.items.pop()
 
-    <span class="token keyword">def</span> <span class="token function">peek</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">[</span>len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+    def peek(self):
+        return self.items[len(self.items) - 1]
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span>
+    def size(self):
+        return len(self.items)
 </code></pre>
 <h3 id="Queue-abstract-data-type"><a href="#Queue-abstract-data-type" class="headerlink" title="Queue abstract data type"></a>Queue abstract data type</h3><ul>
 <li><code>Queue()</code> return empty queue</li>
@@ -389,22 +598,22 @@
 <li><code>size()</code></li>
 </ul>
 <p>The implementation is: </p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Queue</span><span class="token punctuation">:</span>
+<pre class=" language-lang-python"><code class="language-lang-python">class Queue:
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def __init__(self):
+        self.items = []
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def isEmpty(self):
+        return self.items == []
 
-    <span class="token keyword">def</span> <span class="token function">enqueue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span>
+    def enqueue(self, item):
+        self.items.insert(0, item)
 
-    <span class="token keyword">def</span> <span class="token function">dequeue</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def dequeue(self):
+        return self.items.pop()
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span>
+    def size(self):
+        return len(self.items)
 </code></pre>
 <h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>A deque, also known as a double-ended queue, is an ordered collection of items similar to the queue</p>
 <ul>
@@ -431,72 +640,72 @@
 <li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
 </ul>
 <p>Implementation Linked Lists</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> initData<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>data <span class="token operator">=</span> initData
-        self<span class="token punctuation">.</span>next <span class="token operator">=</span> None
+<pre class=" language-lang-python"><code class="language-lang-python">class Node:
+    def __init__(self, initData):
+        self.data = initData
+        self.next = None
 
-    <span class="token keyword">def</span> <span class="token function">getData</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>data
+    def getData(self):
+        return self.data
 
-    <span class="token keyword">def</span> <span class="token function">getNext</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>next
+    def getNext(self):
+        return self.next
 
-    <span class="token keyword">def</span> <span class="token function">setData</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> newData<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>data <span class="token operator">=</span> newData
+    def setData(self, newData):
+        self.data = newData
 
-    <span class="token keyword">def</span> <span class="token function">setNext</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> newNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+    def setNext(self, newNode):
+        self.next = newNode
 
-<span class="token keyword">class</span> <span class="token class-name">UnorderedList</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>head <span class="token operator">=</span> None
+class UnorderedList:
+    def __init__(self):
+        self.head = None
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>head <span class="token operator">==</span> None
+    def isEmpty(self):
+        return self.head == None
 
-    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        temp <span class="token operator">=</span> Node<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-        temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>self<span class="token punctuation">.</span>head<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>head <span class="token operator">=</span> temp
+    def add(self, item):
+        temp = Node(item)
+        temp.setNext(self.head)
+        self.head = temp
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        count <span class="token operator">=</span> <span class="token number">0</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            count <span class="token operator">+=</span> <span class="token number">1</span>
+    def size(self):
+        count = 0
+        current = self.head
+        while current != None:
+            current = current.getNext()
+            count += 1
 
-        <span class="token keyword">return</span> count
+        return count
 
-    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        found <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> item <span class="token operator">==</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                found <span class="token operator">=</span> <span class="token boolean">True</span>
-                <span class="token keyword">break</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def search(self, item):
+        current = self.head
+        found = False
+        while current != None:
+            if item == current.getData():
+                found = True
+                break
+            else:
+                current = current.getNext()
 
-        <span class="token keyword">return</span> found
+        return found
 
-    <span class="token keyword">def</span> <span class="token function">remove</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        found <span class="token operator">=</span> <span class="token boolean">False</span>
-        previous <span class="token operator">=</span> None
+    def remove(self, item):
+        current = self.head
+        found = False
+        previous = None
 
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> item <span class="token operator">==</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">break</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                previous <span class="token operator">=</span> current
-                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        while current != None:
+            if item == current.getData():
+                break
+            else:
+                previous = current
+                current = current.getNext()
 
-            <span class="token keyword">if</span> previous <span class="token operator">==</span> None<span class="token punctuation">:</span>
-                self<span class="token punctuation">.</span>head <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                previous<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            if previous == None:
+                self.head = current.getNext()
+            else:
+                previous.setNext(current.getNext())
 </code></pre>
 <p>Modify the append method to be O(1)</p>
 <h4 id="The-Ordered-List"><a href="#The-Ordered-List" class="headerlink" title="The Ordered List"></a>The Ordered List</h4><p>The structure of an ordered list is a collection of items where each item holds a relative position that is based upon some underlying characteristic of the item. </p>
@@ -512,66 +721,66 @@
 <li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
 </ul>
 <p>implement</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> Node <span class="token keyword">import</span> Node
+<pre class=" language-lang-python"><code class="language-lang-python">from Node import Node
 
-<span class="token keyword">class</span> <span class="token class-name">OrderedList</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>head <span class="token operator">=</span> None
+class OrderedList:
+    def __init__(self):
+        self.head = None
 
-    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> item<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">True</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> item<span class="token punctuation">:</span>
-                    <span class="token keyword">return</span> <span class="token boolean">False</span>
+    def search(self, item):
+        current = self.head
+        while current != None:
+            if current.getData() == item:
+                return True
+            else:
+                if current.getData() > item:
+                    return False
 
-            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            current = current.getNext()
 
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
+        return False
 
-    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        previous <span class="token operator">=</span> None
-        stop <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None <span class="token operator">and</span> <span class="token operator">not</span> stop<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> item<span class="token punctuation">:</span>
-                stop <span class="token operator">=</span> <span class="token boolean">True</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                previous <span class="token operator">=</span> current
-                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def add(self,item):
+        current = self.head
+        previous = None
+        stop = False
+        while current != None and not stop:
+            if current.getData() > item:
+                stop = True
+            else:
+                previous = current
+                current = current.getNext()
 
-        temp <span class="token operator">=</span> Node<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> previous <span class="token operator">==</span> None<span class="token punctuation">:</span>
-            temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>self<span class="token punctuation">.</span>head<span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>head <span class="token operator">=</span> temp
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>current<span class="token punctuation">)</span>
-            previous<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+        temp = Node(item)
+        if previous == None:
+            temp.setNext(self.head)
+            self.head = temp
+        else:
+            temp.setNext(current)
+            previous.setNext(temp)
 
 
-    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>head <span class="token operator">==</span> None
+    def isEmpty(self):
+        return self.head == None
 
-    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
-        count <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
-            count <span class="token operator">+=</span> <span class="token number">1</span>
-            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def size(self):
+        current = self.head
+        count = 0
+        while current != None:
+            count += 1
+            current = current.getNext()
 
-        <span class="token keyword">return</span> count
+        return count
 </code></pre>
-<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    stuff<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token operator">not</span> condition<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
+<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><pre class=" language-lang-python"><code class="language-lang-python">while True:
+    stuff()
+    if not condition():
+        break
 </code></pre>
 <p>equals:</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">do</span> <span class="token punctuation">{</span>
-    <span class="token function">stuff</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">condition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class=" language-lang-java"><code class="language-lang-java">do {
+    stuff()
+} while (condition())
 </code></pre>
 
           
@@ -653,7 +862,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T20:19:33+08:00">
                 2017-06-26
@@ -674,7 +883,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -722,36 +931,38 @@
 <li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
 </ul>
 <h3 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>新建名为Hexo文件夹，在目录下运行</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-cli <span class="token comment" spellcheck="true">#安装Hexo</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-cli #安装Hexo
 </code></pre>
 <h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>启动Hexo</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo g <span class="token comment" spellcheck="true">#生成静态文件</span>
-$ hexo s <span class="token comment" spellcheck="true">#启动本地web服务</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g #生成静态文件
+$ hexo s #启动本地web服务
 </code></pre>
 <p>此时打开网址 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 可以看见内置的blog</p>
 <h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>以yilia为例</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> clone https://github.com/litten/hexo-theme-yilia.git themes/yilia <span class="token comment" spellcheck="true">#安装主题</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia #安装主题
 </code></pre>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> themes/yilia <span class="token comment" spellcheck="true">#更新主题</span>
-$ <span class="token function">git</span> pull
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ cd themes/yilia #更新主题
+$ git pull
 </code></pre>
 <p>重新启动Hexo，即可看见主题更新</p>
 <h2 id="部署Hexo到GitHub-Pages"><a href="#部署Hexo到GitHub-Pages" class="headerlink" title="部署Hexo到GitHub Pages"></a>部署Hexo到GitHub Pages</h2><h3 id="使用Hexo-deploy部署"><a href="#使用Hexo-deploy部署" class="headerlink" title="使用Hexo deploy部署"></a>使用Hexo deploy部署</h3><p>首先需要安装一个扩展</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-deployer-git --save
 </code></pre>
 <p>修改配置文件<code>/blog/_config.xml</code></p>
-<pre class=" language-bash"><code class="language-bash">deploy:
-  type: <span class="token function">git</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">deploy:
+  type: git
   repo: git@github.com:user/user.github.io.git
   branch: master
 </code></pre>
 <p>执行完成部署</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo d
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo d
 </code></pre>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>每次deploy之前要运行, 生成静态文件</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo g
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g
 </code></pre>
-
+<p>需要使用LaTeX时，记得开启</p>
+<pre><code>mathJax: true
+</code></pre>
           
         
       
@@ -831,7 +1042,7 @@ $ <span class="token function">git</span> pull
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T20:19:33+08:00">
                 2017-06-26
@@ -852,7 +1063,7 @@ $ <span class="token function">git</span> pull
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -894,16 +1105,16 @@ $ <span class="token function">git</span> pull
         
           
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo new "My New Post"
 </code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo server
 </code></pre>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo generate
 </code></pre>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo deploy
 </code></pre>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
@@ -986,7 +1197,7 @@ $ <span class="token function">git</span> pull
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T11:05:29+08:00">
                 2017-06-21
@@ -1007,7 +1218,7 @@ $ <span class="token function">git</span> pull
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1062,7 +1273,7 @@ $ <span class="token function">git</span> pull
 [:space:]任何会产生空白的字符如空格，tab,CR 等
 [:xdigit:]代表 16 进位的数字类型
 </code></pre><p>利用<code>grep</code>查找文件中的小写字符</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> -n <span class="token string">'[[:lower:]]'</span> examples.txt
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep -n '[[:lower:]]' examples.txt
 </code></pre>
 <h2 id="字符组匹配"><a href="#字符组匹配" class="headerlink" title="字符组匹配"></a>字符组匹配</h2><p><code>[]</code>中包含的任意一个字符，只能是一个<br><code>-</code>表示一个自范围，要求前面字符的码位小于后面字符的码位<br><code>[^...]</code>排除型字符组，表示排除后面的字符</p>
 <p>例如：</p>
@@ -1072,7 +1283,7 @@ $ <span class="token function">git</span> pull
 [^a1&lt;]          :表示除“a”、“1”、“&lt;”外的其它任意一个字符
 [^a-z]          :表示除小写字母外的任意一个字符
 </code></pre><h2 id="任意一个字符-与重复字符"><a href="#任意一个字符-与重复字符" class="headerlink" title="任意一个字符.与重复字符*"></a>任意一个字符<code>.</code>与重复字符<code>*</code></h2><p><code>.</code>表示任意一个字符，一个小数点只能表示一个未知字符</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> -n <span class="token string">'wh.t'</span> examples.txt
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep -n 'wh.t' examples.txt
 </code></pre>
 <p><code>#</code>表示重复前面0个或者多个字符</p>
 <pre><code>e*： 表示具有空字符或者一个以上 e 字符。
@@ -1080,30 +1291,30 @@ ee*，表示前面的第一个 e 字符必须存在。第二个 e 则可以是 0
 eee*，表示前面两个 e 字符必须存在。第三个 e 则可以是 0 个或者多个 e 字符。
 ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 则可以是 0 个或者多个 e 字符。
 </code></pre><p>也可用<code>+</code>或者<code>?</code>来表示<br><code>+</code>表示重复1个或者1个以上的前一个字符</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token string">'go+d'</span> examples.txt
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep 'go+d' examples.txt
 </code></pre>
 <p>等价于</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token string">'goo#d'</span> examples.txt
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep 'goo#d' examples.txt
 </code></pre>
 <p><code>?</code>表示重复0个或者1个以上前一个字符</p>
 <h2 id="限定连续字符范围"><a href="#限定连续字符范围" class="headerlink" title="限定连续字符范围{}"></a>限定连续字符范围<code>{}</code></h2><p><code>{}</code>可限制一个范围区间内的重复字符数，必要时可能需要转义<br>查找连续的2-5个o</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> -n <span class="token string">'go\{2,5\}g'</span> examples.txt
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep -n 'go\{2,5\}g' examples.txt
 </code></pre>
 <h2 id="行首符-和行尾符"><a href="#行首符-和行尾符" class="headerlink" title="行首符^和行尾符$"></a>行首符<code>^</code>和行尾符<code>$</code></h2><pre><code>&#39;^[A-Z]&#39; 表示以大写字母开头。
 </code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="表示用或的方式找出数个字符串"><a href="#表示用或的方式找出数个字符串" class="headerlink" title="|表示用或的方式找出数个字符串"></a><code>|</code>表示用或的方式找出数个字符串</h3><h3 id="表示找出群组的字符串"><a href="#表示找出群组的字符串" class="headerlink" title="()表示找出群组的字符串"></a><code>()</code>表示找出群组的字符串</h3><p>搜索glad或者good这两个字符串</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token string">'g(la|oo)d'</span> examples.txt
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep 'g(la|oo)d' examples.txt
 </code></pre>
 <h3 id="多个重复群组判别"><a href="#多个重复群组判别" class="headerlink" title="多个重复群组判别"></a>多个重复群组判别</h3><p><code>A(xyx)+C</code>表示查找<code>A</code>开头<code>C</code>结尾，中间有若干个<code>xyz</code>的字符串</p>
 <h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><p>grep常见参数</p>
-<pre class=" language-bash"><code class="language-bash">-a ：将 binary 档案以 text 档案的方式搜寻数据
+<pre class=" language-lang-bash"><code class="language-lang-bash">-a ：将 binary 档案以 text 档案的方式搜寻数据
 
--c ：计算找到 <span class="token string">'搜寻字符串'</span> 的次数
+-c ：计算找到 '搜寻字符串' 的次数
 
 -i ：忽略大小写的不同，所以大小写视为相同
 
 -n ：顺便输出行号
 
--v ：反向选择，亦即显示出没有 <span class="token string">'搜寻字符串'</span> 内容的那一行！
+-v ：反向选择，亦即显示出没有 '搜寻字符串' 内容的那一行！
 </code></pre>
 
           
@@ -1185,7 +1396,7 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-19T21:52:04+08:00">
                 2017-06-19
@@ -1206,7 +1417,7 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1248,10 +1459,10 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
         
           
             <p>使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下</p>
-<h3 id="检查电脑是否已经有SSH-key"><a href="#检查电脑是否已经有SSH-key" class="headerlink" title="检查电脑是否已经有SSH key"></a>检查电脑是否已经有SSH key</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> ~/.ssh
+<h3 id="检查电脑是否已经有SSH-key"><a href="#检查电脑是否已经有SSH-key" class="headerlink" title="检查电脑是否已经有SSH key"></a>检查电脑是否已经有SSH key</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ cd ~/.ssh
 </code></pre>
 <p>检查<code>.ssh</code>是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。</p>
-<h3 id="生产SSH-key"><a href="#生产SSH-key" class="headerlink" title="生产SSH key"></a>生产SSH key</h3><pre class=" language-bash"><code class="language-bash">$ ssh-keygen -t rsa -C <span class="token string">"user_email@example.com"</span>
+<h3 id="生产SSH-key"><a href="#生产SSH-key" class="headerlink" title="生产SSH key"></a>生产SSH key</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ ssh-keygen -t rsa -C "user_email@example.com"
 </code></pre>
 <blockquote>
 <p>-t 指定密钥类型，默认是RSA，可以略去<br>-C 设置注释文字，这里用到的是邮箱<br>-f 指定文件储存的文件名</p>
@@ -1271,7 +1482,7 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
 </code></pre><h3 id="添加到GitHub"><a href="#添加到GitHub" class="headerlink" title="添加到GitHub"></a>添加到GitHub</h3><p>复制<code>id_rsa.pub</code>文件的内容，添加到指定位置即可</p>
 <h3 id="测试SSH-key"><a href="#测试SSH-key" class="headerlink" title="测试SSH key"></a>测试SSH key</h3><p>打开Git bash</p>
 <p>输入</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@github.com
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ ssh -T git@github.com
 </code></pre>
 <p>可能出现如下内容</p>
 <pre><code>The authenticity of host &#39;github.com (192.30.252.1)&#39; can&#39;t be established.
@@ -1360,7 +1571,7 @@ provide shell access.
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T16:43:06+08:00">
                 2017-06-15
@@ -1381,7 +1592,7 @@ provide shell access.
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1423,7 +1634,7 @@ provide shell access.
         
           
             <h2 id="关于Markdown"><a href="#关于Markdown" class="headerlink" title="关于Markdown"></a>关于Markdown</h2><h3 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>在Markdown中只需要在标题前加<code>#</code>即可，共分为六级，按照<code>#</code>数量区分</p>
-<pre class=" language-Markdown"><code class="language-Markdown"># 一级标题
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown"># 一级标题
 ## 二级标题
 ### 三级标题
 #### 四级标题
@@ -1433,27 +1644,27 @@ provide shell access.
 <p><em><code>#</code>和标题之间建议保留一个字符的空格，这是最标准的Markdown写法</em></p>
 <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>Markdown支持有序列表和无序列表</p>
 <p>有序列表在文字前添加 <code>*</code> 或 <code>+</code> 或 <code>-</code> ：</p>
-<pre class=" language-Markdown"><code class="language-Markdown">* Red
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">* Red
 + Green
 - Yellow
 </code></pre>
 <p>无序列表是在文字前加上1. 2. 3.</p>
-<pre class=" language-Markdown"><code class="language-Markdown">1. First
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">1. First
 2. Second
 3. Third
 </code></pre>
 <h4 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h4><p>在引用的文字前添加<code>&gt;</code></p>
-<pre class=" language-Markdown"><code class="language-Markdown">> This is a quote.
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">> This is a quote.
 </code></pre>
 <h4 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h4><p>代码引用有两种方式</p>
 <p>代码不分行，用<code>` </code></p>
-<pre class=" language-Markdown"><code class="language-Markdown">`$ echo "Hello World"`
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">`$ echo "Hello World"`
 </code></pre>
 <p><em>注意：如果要在代码段中加入<code>` </code>，可以用多个引号来开启结束代码区段</em></p>
-<pre class=" language-Markdown"><code class="language-Markdown">``There is a literal backtick ` here.``
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">``There is a literal backtick ` here.``
 </code></pre>
 <p>代码为多行时，将 <code>``` </code> 置于代码的首行和末行, 在<code>``` </code>后增加代码名称如Java, js等能够实现对应代码的代码高亮</p>
-<pre class=" language-Markdown"><code class="language-Markdown">```java
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">```java
 public class HelloWorld {
     public static void main(String[] args) {.
         System.out.println("Hello, World");
@@ -1462,6 +1673,7 @@ public class HelloWorld {
 }
 ```
 </code></pre>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1503,35 +1715,36 @@ public class HelloWorld {
 </tr>
 </tbody>
 </table>
+</div>
 <p>具体可以参考<a href="http://www.cnblogs.com/qyf404/p/5019631.html" target="_blank" rel="external">博客</a></p>
 <p>支持高亮的显示语言包括</p>
 <h3 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h3><h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>支持的链接有两种方式，行内式和参考式</p>
 <p>行内式链接用<code>[]</code>将链接文字标记，后面紧接<code>()</code>将网址标记</p>
-<pre class=" language-Markdown"><code class="language-Markdown">You can use [Google](http://google.com)
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">You can use [Google](http://google.com)
 </code></pre>
 <p>参考式在链接文字<code>[]</code>后再紧接另一个<code>[]</code>，这个<code>[]</code>内填入用以标识链接的id</p>
-<pre class=" language-Markdown"><code class="language-Markdown">You can use [Google][google]
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">You can use [Google][google]
 </code></pre>
 <p>再文件的任意位置，将标记的链接内容定义</p>
-<pre class=" language-Markdown"><code class="language-Markdown">[google]:http://google.com
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">[google]:http://google.com
 </code></pre>
 <h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>Markdown使用与链接很相似的方式来插入图片，同样允许两种方式：行内式和参考式</p>
 <p>只需要在链接的语句前加入<code>!</code>即可,<code>[]</code>内放上图片的代替文字</p>
-<pre class=" language-Markdown"><code class="language-Markdown">![picture](/path/picture.jpg)
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">![picture](/path/picture.jpg)
 </code></pre>
 <p>参考式与链接类似</p>
-<pre class=" language-Markdown"><code class="language-Markdown">![picture][pic]
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">![picture][pic]
 
 [pic]:/path/picture
 </code></pre>
 <h4 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h4><p>使用 <code>*</code> <code>_</code> <code>**</code> <code>__</code>表示强调，<code>*</code> <code>_</code>相同表示斜体，<code>**</code> <code>__</code>相同表示加粗</p>
-<pre class=" language-Markdown"><code class="language-Markdown">*斜体强调*
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">*斜体强调*
 _斜体强调_
 **加粗强调**
 __加粗强调__
 </code></pre>
 <h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>使用<code>|</code>来分隔不同的单元格，使用<code>-</code>分隔表头与其他行</p>
-<pre class=" language-Markdown"><code class="language-Markdown">|    name    | age |
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">|    name    | age |
 | ---------- | --- |
 | LearnShare |  12 |
 | Mike       |  32 |
@@ -1631,7 +1844,7 @@ __加粗强调__
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-13T15:08:19+08:00">
                 2017-06-13
@@ -1652,7 +1865,7 @@ __加粗强调__
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1716,16 +1929,16 @@ __加粗强调__
 </ul>
 <h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><p>网站地图描述了一个网站的架构。它可以使一个任意形式的文档，用作网页设计的设计工具，也可以是列出网站中所有页面的一个网页，通常采用分级形式。这有助于访问者以及搜索引擎的机器人找到网站中的页面。</p>
 <h3 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h3><p>在Hexo目录下，安装</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-generator-sitemap --save
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-generator-sitemap --save
 </code></pre>
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开Hexo目录下的<code>_config.xml</code>，在最后添加</p>
-<pre class=" language-xml"><code class="language-xml"># 自动生成sitemap
+<pre class=" language-lang-xml"><code class="language-lang-xml"># 自动生成sitemap
 sitemap:
 path: sitemap.xml
 </code></pre>
 <p>运行</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo g <span class="token comment" spellcheck="true">#生成静态文件</span>
-$ hexo d <span class="token comment" spellcheck="true">#上传到GitHub</span>
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g #生成静态文件
+$ hexo d #上传到GitHub
 </code></pre>
 <p>这时能够找到<code>public\sitemap.xml</code>文件</p>
 <h3 id="添加站点地图-1"><a href="#添加站点地图-1" class="headerlink" title="添加站点地图"></a>添加站点地图</h3><img src="/2017/06/13/google-search-blogs/build-hexo-github-pages2.jpg" alt="build-hexo-github-pages2.jpg" title="">
@@ -1810,8 +2023,8 @@ $ hexo d <span class="token comment" spellcheck="true">#上传到GitHub</span>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1821,8 +2034,8 @@ $ hexo d <span class="token comment" spellcheck="true">#上传到GitHub</span>
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -1833,7 +2046,7 @@ $ hexo d <span class="token comment" spellcheck="true">#上传到GitHub</span>
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1883,7 +2096,7 @@ $ hexo d <span class="token comment" spellcheck="true">#上传到GitHub</span>
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

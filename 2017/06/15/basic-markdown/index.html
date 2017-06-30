@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T16:43:06+08:00">
                 2017-06-15
@@ -305,7 +305,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -345,7 +345,7 @@
 
       
         <h2 id="关于Markdown"><a href="#关于Markdown" class="headerlink" title="关于Markdown"></a>关于Markdown</h2><h3 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>在Markdown中只需要在标题前加<code>#</code>即可，共分为六级，按照<code>#</code>数量区分</p>
-<pre class=" language-Markdown"><code class="language-Markdown"># 一级标题
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown"># 一级标题
 ## 二级标题
 ### 三级标题
 #### 四级标题
@@ -355,27 +355,27 @@
 <p><em><code>#</code>和标题之间建议保留一个字符的空格，这是最标准的Markdown写法</em></p>
 <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>Markdown支持有序列表和无序列表</p>
 <p>有序列表在文字前添加 <code>*</code> 或 <code>+</code> 或 <code>-</code> ：</p>
-<pre class=" language-Markdown"><code class="language-Markdown">* Red
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">* Red
 + Green
 - Yellow
 </code></pre>
 <p>无序列表是在文字前加上1. 2. 3.</p>
-<pre class=" language-Markdown"><code class="language-Markdown">1. First
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">1. First
 2. Second
 3. Third
 </code></pre>
 <h4 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h4><p>在引用的文字前添加<code>&gt;</code></p>
-<pre class=" language-Markdown"><code class="language-Markdown">> This is a quote.
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">> This is a quote.
 </code></pre>
 <h4 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h4><p>代码引用有两种方式</p>
 <p>代码不分行，用<code>` </code></p>
-<pre class=" language-Markdown"><code class="language-Markdown">`$ echo "Hello World"`
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">`$ echo "Hello World"`
 </code></pre>
 <p><em>注意：如果要在代码段中加入<code>` </code>，可以用多个引号来开启结束代码区段</em></p>
-<pre class=" language-Markdown"><code class="language-Markdown">``There is a literal backtick ` here.``
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">``There is a literal backtick ` here.``
 </code></pre>
 <p>代码为多行时，将 <code>``` </code> 置于代码的首行和末行, 在<code>``` </code>后增加代码名称如Java, js等能够实现对应代码的代码高亮</p>
-<pre class=" language-Markdown"><code class="language-Markdown">```java
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">```java
 public class HelloWorld {
     public static void main(String[] args) {.
         System.out.println("Hello, World");
@@ -384,6 +384,7 @@ public class HelloWorld {
 }
 ```
 </code></pre>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -425,35 +426,36 @@ public class HelloWorld {
 </tr>
 </tbody>
 </table>
+</div>
 <p>具体可以参考<a href="http://www.cnblogs.com/qyf404/p/5019631.html" target="_blank" rel="external">博客</a></p>
 <p>支持高亮的显示语言包括</p>
 <h3 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h3><h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>支持的链接有两种方式，行内式和参考式</p>
 <p>行内式链接用<code>[]</code>将链接文字标记，后面紧接<code>()</code>将网址标记</p>
-<pre class=" language-Markdown"><code class="language-Markdown">You can use [Google](http://google.com)
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">You can use [Google](http://google.com)
 </code></pre>
 <p>参考式在链接文字<code>[]</code>后再紧接另一个<code>[]</code>，这个<code>[]</code>内填入用以标识链接的id</p>
-<pre class=" language-Markdown"><code class="language-Markdown">You can use [Google][google]
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">You can use [Google][google]
 </code></pre>
 <p>再文件的任意位置，将标记的链接内容定义</p>
-<pre class=" language-Markdown"><code class="language-Markdown">[google]:http://google.com
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">[google]:http://google.com
 </code></pre>
 <h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>Markdown使用与链接很相似的方式来插入图片，同样允许两种方式：行内式和参考式</p>
 <p>只需要在链接的语句前加入<code>!</code>即可,<code>[]</code>内放上图片的代替文字</p>
-<pre class=" language-Markdown"><code class="language-Markdown">![picture](/path/picture.jpg)
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">![picture](/path/picture.jpg)
 </code></pre>
 <p>参考式与链接类似</p>
-<pre class=" language-Markdown"><code class="language-Markdown">![picture][pic]
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">![picture][pic]
 
 [pic]:/path/picture
 </code></pre>
 <h4 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h4><p>使用 <code>*</code> <code>_</code> <code>**</code> <code>__</code>表示强调，<code>*</code> <code>_</code>相同表示斜体，<code>**</code> <code>__</code>相同表示加粗</p>
-<pre class=" language-Markdown"><code class="language-Markdown">*斜体强调*
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">*斜体强调*
 _斜体强调_
 **加粗强调**
 __加粗强调__
 </code></pre>
 <h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>使用<code>|</code>来分隔不同的单元格，使用<code>-</code>分隔表头与其他行</p>
-<pre class=" language-Markdown"><code class="language-Markdown">|    name    | age |
+<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">|    name    | age |
 | ---------- | --- |
 | LearnShare |  12 |
 | Mike       |  32 |
@@ -576,10 +578,10 @@ __加粗强调__
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -599,8 +601,8 @@ __加粗强调__
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -610,8 +612,8 @@ __加粗强调__
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -622,7 +624,7 @@ __加粗强调__
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -688,7 +690,7 @@ __加粗强调__
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

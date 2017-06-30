@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-19T21:52:04+08:00">
                 2017-06-19
@@ -305,7 +305,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -345,10 +345,10 @@
 
       
         <p>使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下</p>
-<h3 id="检查电脑是否已经有SSH-key"><a href="#检查电脑是否已经有SSH-key" class="headerlink" title="检查电脑是否已经有SSH key"></a>检查电脑是否已经有SSH key</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> ~/.ssh
+<h3 id="检查电脑是否已经有SSH-key"><a href="#检查电脑是否已经有SSH-key" class="headerlink" title="检查电脑是否已经有SSH key"></a>检查电脑是否已经有SSH key</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ cd ~/.ssh
 </code></pre>
 <p>检查<code>.ssh</code>是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。</p>
-<h3 id="生产SSH-key"><a href="#生产SSH-key" class="headerlink" title="生产SSH key"></a>生产SSH key</h3><pre class=" language-bash"><code class="language-bash">$ ssh-keygen -t rsa -C <span class="token string">"user_email@example.com"</span>
+<h3 id="生产SSH-key"><a href="#生产SSH-key" class="headerlink" title="生产SSH key"></a>生产SSH key</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ ssh-keygen -t rsa -C "user_email@example.com"
 </code></pre>
 <blockquote>
 <p>-t 指定密钥类型，默认是RSA，可以略去<br>-C 设置注释文字，这里用到的是邮箱<br>-f 指定文件储存的文件名</p>
@@ -368,7 +368,7 @@
 </code></pre><h3 id="添加到GitHub"><a href="#添加到GitHub" class="headerlink" title="添加到GitHub"></a>添加到GitHub</h3><p>复制<code>id_rsa.pub</code>文件的内容，添加到指定位置即可</p>
 <h3 id="测试SSH-key"><a href="#测试SSH-key" class="headerlink" title="测试SSH key"></a>测试SSH key</h3><p>打开Git bash</p>
 <p>输入</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@github.com
+<pre class=" language-lang-bash"><code class="language-lang-bash">$ ssh -T git@github.com
 </code></pre>
 <p>可能出现如下内容</p>
 <pre><code>The authenticity of host &#39;github.com (192.30.252.1)&#39; can&#39;t be established.
@@ -480,10 +480,10 @@ provide shell access.
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -503,8 +503,8 @@ provide shell access.
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -514,8 +514,8 @@ provide shell access.
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -526,7 +526,7 @@ provide shell access.
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -592,7 +592,7 @@ provide shell access.
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
