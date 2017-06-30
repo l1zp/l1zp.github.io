@@ -1,0 +1,775 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="正则表达式正则表达式通过一些特殊符号的帮助，使用户可以轻松快捷的完成查找、删除、替换等处理程序 正则表达式特殊符号[:alnum:]代表英文大小写字母及数字 [:alpha:]代表英文大小写字母 [:blank:]代表空格和 tab 键 [:cntrl:]键盘上的控制按键，如 CR,LF,TAB,DEL [:digit:]代表数字 [:graph:]代表空白字符以外的其他 [:lower:]小写字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式基础介绍">
+<meta property="og:url" content="https://l1zp.github.io/2017/06/21/basic-resgular-expressions/index.html">
+<meta property="og:site_name" content="大四狗肉馆">
+<meta property="og:description" content="正则表达式正则表达式通过一些特殊符号的帮助，使用户可以轻松快捷的完成查找、删除、替换等处理程序 正则表达式特殊符号[:alnum:]代表英文大小写字母及数字 [:alpha:]代表英文大小写字母 [:blank:]代表空格和 tab 键 [:cntrl:]键盘上的控制按键，如 CR,LF,TAB,DEL [:digit:]代表数字 [:graph:]代表空白字符以外的其他 [:lower:]小写字">
+<meta property="og:updated_time" content="2017-06-26T12:19:33.365Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式基础介绍">
+<meta name="twitter:description" content="正则表达式正则表达式通过一些特殊符号的帮助，使用户可以轻松快捷的完成查找、删除、替换等处理程序 正则表达式特殊符号[:alnum:]代表英文大小写字母及数字 [:alpha:]代表英文大小写字母 [:blank:]代表空格和 tab 键 [:cntrl:]键盘上的控制按键，如 CR,LF,TAB,DEL [:digit:]代表数字 [:graph:]代表空白字符以外的其他 [:lower:]小写字">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://l1zp.github.io/2017/06/21/basic-resgular-expressions/"/>
+
+
+
+
+
+  <title> 正则表达式基础介绍 | 大四狗肉馆 </title>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大四狗肉馆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2017/06/21/basic-resgular-expressions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Light Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大四狗肉馆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                正则表达式基础介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T11:05:29+08:00">
+                2017-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/regular-expressions/" itemprop="url" rel="index">
+                    <span itemprop="name">regular expressions</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式通过一些特殊符号的帮助，使用户可以轻松快捷的完成查找、删除、替换等处理程序</p>
+<h2 id="正则表达式特殊符号"><a href="#正则表达式特殊符号" class="headerlink" title="正则表达式特殊符号"></a>正则表达式特殊符号</h2><pre><code>[:alnum:]代表英文大小写字母及数字
+[:alpha:]代表英文大小写字母
+[:blank:]代表空格和 tab 键
+[:cntrl:]键盘上的控制按键，如 CR,LF,TAB,DEL
+[:digit:]代表数字
+[:graph:]代表空白字符以外的其他
+[:lower:]小写字母
+[:print:]可以被打印出来的任何字符
+[:punct:]代表标点符号
+[:upper:]代表大写字符
+[:space:]任何会产生空白的字符如空格，tab,CR 等
+[:xdigit:]代表 16 进位的数字类型
+</code></pre><p>利用<code>grep</code>查找文件中的小写字符</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> -n <span class="token string">'[[:lower:]]'</span> examples.txt
+</code></pre>
+<h2 id="字符组匹配"><a href="#字符组匹配" class="headerlink" title="字符组匹配"></a>字符组匹配</h2><p><code>[]</code>中包含的任意一个字符，只能是一个<br><code>-</code>表示一个自范围，要求前面字符的码位小于后面字符的码位<br><code>[^...]</code>排除型字符组，表示排除后面的字符</p>
+<p>例如：</p>
+<pre><code>[abc]           ：表示“a”或“b”或“c”
+[0-9]           ：表示 0~9 中任意一个数字，等价于[0123456789]
+[\u4e00-\u9fa5] :表示任意一个汉字
+[^a1&lt;]          :表示除“a”、“1”、“&lt;”外的其它任意一个字符
+[^a-z]          :表示除小写字母外的任意一个字符
+</code></pre><h2 id="任意一个字符-与重复字符"><a href="#任意一个字符-与重复字符" class="headerlink" title="任意一个字符.与重复字符*"></a>任意一个字符<code>.</code>与重复字符<code>*</code></h2><p><code>.</code>表示任意一个字符，一个小数点只能表示一个未知字符</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> -n <span class="token string">'wh.t'</span> examples.txt
+</code></pre>
+<p><code>#</code>表示重复前面0个或者多个字符</p>
+<pre><code>e*： 表示具有空字符或者一个以上 e 字符。
+ee*，表示前面的第一个 e 字符必须存在。第二个 e 则可以是 0 个或者多个 e 字符。
+eee*，表示前面两个 e 字符必须存在。第三个 e 则可以是 0 个或者多个 e 字符。
+ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 则可以是 0 个或者多个 e 字符。
+</code></pre><p>也可用<code>+</code>或者<code>?</code>来表示<br><code>+</code>表示重复1个或者1个以上的前一个字符</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token string">'go+d'</span> examples.txt
+</code></pre>
+<p>等价于</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token string">'goo#d'</span> examples.txt
+</code></pre>
+<p><code>?</code>表示重复0个或者1个以上前一个字符</p>
+<h2 id="限定连续字符范围"><a href="#限定连续字符范围" class="headerlink" title="限定连续字符范围{}"></a>限定连续字符范围<code>{}</code></h2><p><code>{}</code>可限制一个范围区间内的重复字符数，必要时可能需要转义<br>查找连续的2-5个o</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> -n <span class="token string">'go\{2,5\}g'</span> examples.txt
+</code></pre>
+<h2 id="行首符-和行尾符"><a href="#行首符-和行尾符" class="headerlink" title="行首符^和行尾符$"></a>行首符<code>^</code>和行尾符<code>$</code></h2><pre><code>&#39;^[A-Z]&#39; 表示以大写字母开头。
+</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="表示用或的方式找出数个字符串"><a href="#表示用或的方式找出数个字符串" class="headerlink" title="|表示用或的方式找出数个字符串"></a><code>|</code>表示用或的方式找出数个字符串</h3><h3 id="表示找出群组的字符串"><a href="#表示找出群组的字符串" class="headerlink" title="()表示找出群组的字符串"></a><code>()</code>表示找出群组的字符串</h3><p>搜索glad或者good这两个字符串</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">grep</span> <span class="token string">'g(la|oo)d'</span> examples.txt
+</code></pre>
+<h3 id="多个重复群组判别"><a href="#多个重复群组判别" class="headerlink" title="多个重复群组判别"></a>多个重复群组判别</h3><p><code>A(xyx)+C</code>表示查找<code>A</code>开头<code>C</code>结尾，中间有若干个<code>xyz</code>的字符串</p>
+<h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><p>grep常见参数</p>
+<pre class=" language-bash"><code class="language-bash">-a ：将 binary 档案以 text 档案的方式搜寻数据
+
+-c ：计算找到 <span class="token string">'搜寻字符串'</span> 的次数
+
+-i ：忽略大小写的不同，所以大小写视为相同
+
+-n ：顺便输出行号
+
+-v ：反向选择，亦即显示出没有 <span class="token string">'搜寻字符串'</span> 内容的那一行！
+</code></pre>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/19/ssk-key-github/" rel="next" title="如何在GitHub中添加SSH key">
+                <i class="fa fa-chevron-left"></i> 如何在GitHub中添加SSH key
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/26/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Light Lee" />
+          <p class="site-author-name" itemprop="name">Light Lee</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式特殊符号"><span class="nav-number">2.</span> <span class="nav-text">正则表达式特殊符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符组匹配"><span class="nav-number">3.</span> <span class="nav-text">字符组匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任意一个字符-与重复字符"><span class="nav-number">4.</span> <span class="nav-text">任意一个字符.与重复字符*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限定连续字符范围"><span class="nav-number">5.</span> <span class="nav-text">限定连续字符范围{}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行首符-和行尾符"><span class="nav-number">6.</span> <span class="nav-text">行首符^和行尾符$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示用或的方式找出数个字符串"><span class="nav-number">7.1.</span> <span class="nav-text">|表示用或的方式找出数个字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示找出群组的字符串"><span class="nav-number">7.2.</span> <span class="nav-text">()表示找出群组的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个重复群组判别"><span class="nav-number">7.3.</span> <span class="nav-text">多个重复群组判别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tips"><span class="nav-number">8.</span> <span class="nav-text">tips</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Light Lee</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+  
+
+
+  
+
+</body>
+</html>

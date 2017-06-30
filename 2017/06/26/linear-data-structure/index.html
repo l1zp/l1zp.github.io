@@ -1,0 +1,948 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Linear StructuresOnce an item is added, it stays in that position relative to the other elements that came before and came after it.   stacks  queues deques  lists  Stack abstract data type Satck() re">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear Data Structure">
+<meta property="og:url" content="https://l1zp.github.io/2017/06/26/linear-data-structure/index.html">
+<meta property="og:site_name" content="大四狗肉馆">
+<meta property="og:description" content="Linear StructuresOnce an item is added, it stays in that position relative to the other elements that came before and came after it.   stacks  queues deques  lists  Stack abstract data type Satck() re">
+<meta property="og:updated_time" content="2017-06-26T15:54:18.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linear Data Structure">
+<meta name="twitter:description" content="Linear StructuresOnce an item is added, it stays in that position relative to the other elements that came before and came after it.   stacks  queues deques  lists  Stack abstract data type Satck() re">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://l1zp.github.io/2017/06/26/linear-data-structure/"/>
+
+
+
+
+
+  <title> Linear Data Structure | 大四狗肉馆 </title>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大四狗肉馆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2017/06/26/linear-data-structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Light Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大四狗肉馆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linear Data Structure
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T20:22:40+08:00">
+                2017-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Structure/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structure</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Linear-Structures"><a href="#Linear-Structures" class="headerlink" title="Linear Structures"></a>Linear Structures</h2><p>Once an item is added, it stays in that position relative to the other elements that came before and came after it. </p>
+<ul>
+<li>stacks </li>
+<li>queues</li>
+<li>deques </li>
+<li>lists</li>
+</ul>
+<h3 id="Stack-abstract-data-type"><a href="#Stack-abstract-data-type" class="headerlink" title="Stack abstract data type"></a>Stack abstract data type</h3><ul>
+<li><code>Satck()</code> return empty stack</li>
+<li><code>push(item)</code> return nothing</li>
+<li><code>pop()</code> return the item</li>
+<li><code>peek()</code> returns the top item from the stack but does not remove it. </li>
+<li><code>isEmpty()</code></li>
+<li><code>size()</code></li>
+</ul>
+<p>The implementation is:</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Stack</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">peek</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">[</span>len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="Queue-abstract-data-type"><a href="#Queue-abstract-data-type" class="headerlink" title="Queue abstract data type"></a>Queue abstract data type</h3><ul>
+<li><code>Queue()</code> return empty queue</li>
+<li><code>enqueue(item)</code></li>
+<li><code>dequeue()</code></li>
+<li><code>isEmpty()</code></li>
+<li><code>size()</code></li>
+</ul>
+<p>The implementation is: </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Queue</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">enqueue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">dequeue</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>A deque, also known as a double-ended queue, is an ordered collection of items similar to the queue</p>
+<ul>
+<li><code>Deque()</code> return empty deque</li>
+<li><code>addFront(item)</code></li>
+<li><code>addRear(item)</code></li>
+<li><code>removeFront()</code> return the item</li>
+<li><code>removeRear()</code> return the item</li>
+<li><code>isEmpty()</code></li>
+<li><code>size()</code></li>
+</ul>
+<h3 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h3><h4 id="The-Unordered-List"><a href="#The-Unordered-List" class="headerlink" title="The Unordered List"></a>The Unordered List</h4><p>A list is a collection of items where each item holds a relative position with respect to the others. More specifically, we will refer to this type of list as an unordered list. </p>
+<ul>
+<li><code>List()</code> creates a new list that is empty. It needs no parameters and returns an empty list.</li>
+<li><code>add(item)</code> adds a new item to the list. It needs the item and returns nothing. Assume the item is not already in the list.</li>
+<li><code>remove(item)</code> removes the item from the list. It needs the item and modifies the list. Assume the item is present in the list.</li>
+<li><code>search(item)</code> searches for the item in the list. It needs the item and returns a boolean value.</li>
+<li><code>isEmpty()</code> tests to see whether the list is empty. It needs no parameters and returns a boolean value.</li>
+<li><code>size()</code> returns the number of items in the list. It needs no parameters and returns an integer.</li>
+<li><code>append(item)</code> adds a new item to the end of the list making it the last item in the collection. It needs the item and returns nothing. Assume the item is not already in the list.</li>
+<li><code>index(item)</code> returns the position of item in the list. It needs the item and returns the index. Assume the item is in the list.</li>
+<li><code>insert(pos,item)</code> adds a new item to the list at position pos. It needs the item and returns nothing. Assume the item is not already in the list and there are enough existing items to have position pos.</li>
+<li><code>pop()</code> removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.</li>
+<li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
+</ul>
+<p>Implementation Linked Lists</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> initData<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> initData
+        self<span class="token punctuation">.</span>next <span class="token operator">=</span> None
+
+    <span class="token keyword">def</span> <span class="token function">getData</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>data
+
+    <span class="token keyword">def</span> <span class="token function">getNext</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>next
+
+    <span class="token keyword">def</span> <span class="token function">setData</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> newData<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> newData
+
+    <span class="token keyword">def</span> <span class="token function">setNext</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> newNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+
+<span class="token keyword">class</span> <span class="token class-name">UnorderedList</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>head <span class="token operator">=</span> None
+
+    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>head <span class="token operator">==</span> None
+
+    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        temp <span class="token operator">=</span> Node<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+        temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>self<span class="token punctuation">.</span>head<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>head <span class="token operator">=</span> temp
+
+    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        count <span class="token operator">=</span> <span class="token number">0</span>
+        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
+        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
+            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            count <span class="token operator">+=</span> <span class="token number">1</span>
+
+        <span class="token keyword">return</span> count
+
+    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
+        found <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> item <span class="token operator">==</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                found <span class="token operator">=</span> <span class="token boolean">True</span>
+                <span class="token keyword">break</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> found
+
+    <span class="token keyword">def</span> <span class="token function">remove</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
+        found <span class="token operator">=</span> <span class="token boolean">False</span>
+        previous <span class="token operator">=</span> None
+
+        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> item <span class="token operator">==</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                previous <span class="token operator">=</span> current
+                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">if</span> previous <span class="token operator">==</span> None<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>head <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                previous<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Modify the append method to be O(1)</p>
+<h4 id="The-Ordered-List"><a href="#The-Ordered-List" class="headerlink" title="The Ordered List"></a>The Ordered List</h4><p>The structure of an ordered list is a collection of items where each item holds a relative position that is based upon some underlying characteristic of the item. </p>
+<ul>
+<li><code>OrderedList()</code> creates a new ordered list that is empty. It needs no parameters and returns an empty list.</li>
+<li><code>add(item)</code> adds a new item to the list making sure that the order is preserved. It needs the item and returns nothing. Assume the item is not already in the list.</li>
+<li><code>remove(item)</code> removes the item from the list. It needs the item and modifies the list. Assume the item is present in the list.</li>
+<li><code>search(item)</code> searches for the item in the list. It needs the item and returns a boolean value.</li>
+<li><code>isEmpty()</code> tests to see whether the list is empty. It needs no parameters and returns a boolean value.</li>
+<li><code>size()</code> returns the number of items in the list. It needs no parameters and returns an integer.</li>
+<li><code>index(item)</code> returns the position of item in the list. It needs the item and returns the index. Assume the item is in the list.</li>
+<li><code>pop()</code> removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.</li>
+<li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
+</ul>
+<p>implement</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> Node <span class="token keyword">import</span> Node
+
+<span class="token keyword">class</span> <span class="token class-name">OrderedList</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>head <span class="token operator">=</span> None
+
+    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
+        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> item<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">True</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> item<span class="token punctuation">:</span>
+                    <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
+        previous <span class="token operator">=</span> None
+        stop <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">while</span> current <span class="token operator">!=</span> None <span class="token operator">and</span> <span class="token operator">not</span> stop<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> current<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> item<span class="token punctuation">:</span>
+                stop <span class="token operator">=</span> <span class="token boolean">True</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                previous <span class="token operator">=</span> current
+                current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        temp <span class="token operator">=</span> Node<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> previous <span class="token operator">==</span> None<span class="token punctuation">:</span>
+            temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>self<span class="token punctuation">.</span>head<span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>head <span class="token operator">=</span> temp
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            temp<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>current<span class="token punctuation">)</span>
+            previous<span class="token punctuation">.</span>setNext<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>head <span class="token operator">==</span> None
+
+    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        current <span class="token operator">=</span> self<span class="token punctuation">.</span>head
+        count <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> current <span class="token operator">!=</span> None<span class="token punctuation">:</span>
+            count <span class="token operator">+=</span> <span class="token number">1</span>
+            current <span class="token operator">=</span> current<span class="token punctuation">.</span>getNext<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> count
+</code></pre>
+<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    stuff<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> condition<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+</code></pre>
+<p>equals:</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">do</span> <span class="token punctuation">{</span>
+    <span class="token function">stuff</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">condition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/26/build-hexo-github-pages/" rel="next" title="使用Hexo + GitHub Pages 搭建个人博客">
+                <i class="fa fa-chevron-left"></i> 使用Hexo + GitHub Pages 搭建个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Light Lee" />
+          <p class="site-author-name" itemprop="name">Light Lee</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Structures"><span class="nav-number">1.</span> <span class="nav-text">Linear Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-abstract-data-type"><span class="nav-number">1.1.</span> <span class="nav-text">Stack abstract data type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue-abstract-data-type"><span class="nav-number">1.2.</span> <span class="nav-text">Queue abstract data type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deque"><span class="nav-number">1.3.</span> <span class="nav-text">deque</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lists"><span class="nav-number">1.4.</span> <span class="nav-text">Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Unordered-List"><span class="nav-number">1.4.1.</span> <span class="nav-text">The Unordered List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Ordered-List"><span class="nav-number">1.4.2.</span> <span class="nav-text">The Ordered List</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><span class="nav-number">1.5.</span> <span class="nav-text">about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Light Lee</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+  
+
+
+  
+
+</body>
+</html>
