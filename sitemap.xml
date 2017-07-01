@@ -2,44 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://l1zp.github.io/categories/index.html</loc>
+    <loc>https://l1zp.github.io/2017/06/30/machine-learning-w5/</loc>
     
-    <lastmod>2017-06-30T18:08:11.323Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://l1zp.github.io/tags/index.html</loc>
-    
-    <lastmod>2017-06-30T18:07:35.845Z</lastmod>
+    <lastmod>2017-07-01T03:52:58.313Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://l1zp.github.io/2017/06/26/build-hexo-github-pages/</loc>
     
-    <lastmod>2017-06-30T17:41:27.238Z</lastmod>
+    <lastmod>2017-07-01T03:52:30.985Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://l1zp.github.io/2017/06/30/machine-learning-w5/</loc>
+    <loc>https://l1zp.github.io/2017/06/26/hello-world/</loc>
     
-    <lastmod>2017-06-30T17:41:27.238Z</lastmod>
+    <lastmod>2017-07-01T03:52:15.113Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://l1zp.github.io/2017/06/26/linear-data-structure/</loc>
     
-    <lastmod>2017-06-26T15:54:18.449Z</lastmod>
+    <lastmod>2017-07-01T03:52:06.595Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/2017/06/13/google-search-blogs/</loc>
+    
+    <lastmod>2017-07-01T03:51:56.126Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/2017/06/15/basic-markdown/</loc>
+    
+    <lastmod>2017-07-01T03:51:46.456Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://l1zp.github.io/2017/06/19/ssk-key-github/</loc>
     
-    <lastmod>2017-06-26T12:19:33.381Z</lastmod>
+    <lastmod>2017-07-01T03:51:35.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/2017/06/21/basic-resgular-expressions/</loc>
+    
+    <lastmod>2017-07-01T03:51:18.504Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/tags/index.html</loc>
+    
+    <lastmod>2017-07-01T03:48:31.428Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://l1zp.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-07-01T03:48:07.336Z</lastmod>
     
   </url>
   
@@ -47,34 +75,6 @@
     <loc>https://l1zp.github.io/gallery/index.html</loc>
     
     <lastmod>2017-06-26T12:19:33.381Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://l1zp.github.io/2017/06/15/basic-markdown/</loc>
-    
-    <lastmod>2017-06-26T12:19:33.365Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://l1zp.github.io/2017/06/26/hello-world/</loc>
-    
-    <lastmod>2017-06-26T12:19:33.365Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://l1zp.github.io/2017/06/13/google-search-blogs/</loc>
-    
-    <lastmod>2017-06-26T12:19:33.365Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://l1zp.github.io/2017/06/21/basic-resgular-expressions/</loc>
-    
-    <lastmod>2017-06-26T12:19:33.365Z</lastmod>
     
   </url>
   

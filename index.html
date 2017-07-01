@@ -366,8 +366,7 @@
 
       
         
-          
-            <p>Neural network:</p>
+          <p>Neural network:</p>
 <p>cost function</p>
 <script type="math/tex; mode=display">h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} output</script><script type="math/tex; mode=display">J(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right]+\frac{\lambda}{2m}\sum^{L-1}_{l-1}\sum^{s_l}_{i=1}\sum^{s_l+1}_{j=1}(Θ^{(l)}_{ji})^2</script><ol>
 <li><p>Randomly initialize weights</p>
@@ -376,66 +375,14 @@
 </li>
 <li><p>Implement code to compute cost function $J(Θ)$</p>
 </li>
-<li><p>Imlement backpropagation to compute partial derivatives </p>
-<script type="math/tex; mode=display">\frac{\partial}{\partial Θ^l_{jk}}J(Θ)</script><ul>
-<li>Training set <script type="math/tex; mode=display">\left\{(x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)})\right\}</script></li>
-</ul>
-<ul>
-<li><p>Set $\Delta^{(l)}_{ij}=0$ (for all $l,i,j$)</p>
-<ul>
-<li><p>For i = 1 to m</p>
-<ul>
-<li>Set $a^{(1)} = x^{(i)}$</li>
-<li><p>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\ldots,L$ </p>
-<blockquote>
-<p>$a^{(1)} = x$<br>$z^{(2)} = Θ^{(1)}a^{(1)}$<br>$a^{(2)} = g(z^{(2)})(add\quad a^{(2)}_0$)</p>
-</blockquote>
-</li>
-<li><p>Using $y^{(i)}$, compute $\delta^{L}=a^{L}-y^{(i)}$</p>
-</li>
-<li><p>compute $\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$</p>
-<blockquote>
-<p>$\delta^{(4)}_j=a^{(4)}_j-y_j$<br>$\delta^{(3)}=(Θ^{(3)})^T\delta^{(4)}.*g^{\prime} (z^{(2)})$</p>
-</blockquote>
-</li>
-<li><script type="math/tex; mode=display">\Delta ^{(l)}_{ij}:= \Delta ^{(l)}_{ij}+a^{(l)}_j \delta ^{(l+1)}_i</script></li>
-<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij} \qquad for\quad j=0</script></li>
-<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij}+\frac{\lambda}m\Theta^{(l)}_{ij} \qquad for\quad j\geq1</script></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Use gradient checking to compare $\frac{\partial}{\partial Θ^l_{jk}}J(Θ)$ computed using backpropagation vs. using numerical estimate of gradient of $J(Θ)$</p>
-<ul>
-<li>Parameter vector $\theta$<ul>
-<li>$\theta \in \Bbb{R}^n$ (E.g. $\theta$ is “unrolled version of $Θ^{(1)}, Θ^{(2)}, Θ^{(3)})$</li>
-<li>$\theta = \theta_1, \theta_2, \ldots, \theta_n$</li>
-<li>$\frac{\partial}{\partial\theta_2}J(\theta) \approx \frac{J(\theta_1,\theta_2,\ldots,\theta_n+\varepsilon)-J(\theta_1,\theta_2,\ldots,\theta_n-\varepsilon)}{2\varepsilon}$<pre class=" language-lang-matlab"><code class="language-lang-matlab">for i = 1:n,
-thetaPlus = theta;
-thetaPlus(i) = thetaPlus(i) + EPSILON;
-thetaMinus = theta;
-thetaMinus(i) = thetaPlus(i) - EPSILON;
-gradApprox(i) = (J(thetaPlus)-J(thetaMinus))/(2*EPSILON);
-end;
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Use gradien descent or advanced optimization method with backpropagation to minimize $J(Θ)$ as function of parameters $Θ$</p>
-<ul>
-<li>Initialize each $\Theta$ to random value in $\left[-\varepsilon, \varepsilon \right]$</li>
-<li>E.g.<pre class=" language-lang-matlab"><code class="language-lang-matlab">Theta1 = rand(10,11)*(2*INIT_EPSILON) - INIT_EPSILON;
-</code></pre>
-</li>
-</ul>
-</li>
 </ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/30/machine-learning-w5/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -586,8 +533,7 @@ end;
 
       
         
-          
-            <h2 id="Linear-Structures"><a href="#Linear-Structures" class="headerlink" title="Linear Structures"></a>Linear Structures</h2><p>Once an item is added, it stays in that position relative to the other elements that came before and came after it. </p>
+          <h2 id="Linear-Structures"><a href="#Linear-Structures" class="headerlink" title="Linear Structures"></a>Linear Structures</h2><p>Once an item is added, it stays in that position relative to the other elements that came before and came after it. </p>
 <ul>
 <li>stacks </li>
 <li>queues</li>
@@ -602,220 +548,13 @@ end;
 <li><code>isEmpty()</code></li>
 <li><code>size()</code></li>
 </ul>
-<p>The implementation is:</p>
-<pre class=" language-lang-python"><code class="language-lang-python">class Stack:
-    def __init__(self):
-        self.items = []
-
-    def isEmpty(self):
-        return self.items == []
-
-    def push(self, item):
-        self.items.append(item)
-
-    def pop(self):
-        return self.items.pop()
-
-    def peek(self):
-        return self.items[len(self.items) - 1]
-
-    def size(self):
-        return len(self.items)
-</code></pre>
-<h3 id="Queue-abstract-data-type"><a href="#Queue-abstract-data-type" class="headerlink" title="Queue abstract data type"></a>Queue abstract data type</h3><ul>
-<li><code>Queue()</code> return empty queue</li>
-<li><code>enqueue(item)</code></li>
-<li><code>dequeue()</code></li>
-<li><code>isEmpty()</code></li>
-<li><code>size()</code></li>
-</ul>
-<p>The implementation is: </p>
-<pre class=" language-lang-python"><code class="language-lang-python">class Queue:
-
-    def __init__(self):
-        self.items = []
-
-    def isEmpty(self):
-        return self.items == []
-
-    def enqueue(self, item):
-        self.items.insert(0, item)
-
-    def dequeue(self):
-        return self.items.pop()
-
-    def size(self):
-        return len(self.items)
-</code></pre>
-<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>A deque, also known as a double-ended queue, is an ordered collection of items similar to the queue</p>
-<ul>
-<li><code>Deque()</code> return empty deque</li>
-<li><code>addFront(item)</code></li>
-<li><code>addRear(item)</code></li>
-<li><code>removeFront()</code> return the item</li>
-<li><code>removeRear()</code> return the item</li>
-<li><code>isEmpty()</code></li>
-<li><code>size()</code></li>
-</ul>
-<h3 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h3><h4 id="The-Unordered-List"><a href="#The-Unordered-List" class="headerlink" title="The Unordered List"></a>The Unordered List</h4><p>A list is a collection of items where each item holds a relative position with respect to the others. More specifically, we will refer to this type of list as an unordered list. </p>
-<ul>
-<li><code>List()</code> creates a new list that is empty. It needs no parameters and returns an empty list.</li>
-<li><code>add(item)</code> adds a new item to the list. It needs the item and returns nothing. Assume the item is not already in the list.</li>
-<li><code>remove(item)</code> removes the item from the list. It needs the item and modifies the list. Assume the item is present in the list.</li>
-<li><code>search(item)</code> searches for the item in the list. It needs the item and returns a boolean value.</li>
-<li><code>isEmpty()</code> tests to see whether the list is empty. It needs no parameters and returns a boolean value.</li>
-<li><code>size()</code> returns the number of items in the list. It needs no parameters and returns an integer.</li>
-<li><code>append(item)</code> adds a new item to the end of the list making it the last item in the collection. It needs the item and returns nothing. Assume the item is not already in the list.</li>
-<li><code>index(item)</code> returns the position of item in the list. It needs the item and returns the index. Assume the item is in the list.</li>
-<li><code>insert(pos,item)</code> adds a new item to the list at position pos. It needs the item and returns nothing. Assume the item is not already in the list and there are enough existing items to have position pos.</li>
-<li><code>pop()</code> removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.</li>
-<li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
-</ul>
-<p>Implementation Linked Lists</p>
-<pre class=" language-lang-python"><code class="language-lang-python">class Node:
-    def __init__(self, initData):
-        self.data = initData
-        self.next = None
-
-    def getData(self):
-        return self.data
-
-    def getNext(self):
-        return self.next
-
-    def setData(self, newData):
-        self.data = newData
-
-    def setNext(self, newNode):
-        self.next = newNode
-
-class UnorderedList:
-    def __init__(self):
-        self.head = None
-
-    def isEmpty(self):
-        return self.head == None
-
-    def add(self, item):
-        temp = Node(item)
-        temp.setNext(self.head)
-        self.head = temp
-
-    def size(self):
-        count = 0
-        current = self.head
-        while current != None:
-            current = current.getNext()
-            count += 1
-
-        return count
-
-    def search(self, item):
-        current = self.head
-        found = False
-        while current != None:
-            if item == current.getData():
-                found = True
-                break
-            else:
-                current = current.getNext()
-
-        return found
-
-    def remove(self, item):
-        current = self.head
-        found = False
-        previous = None
-
-        while current != None:
-            if item == current.getData():
-                break
-            else:
-                previous = current
-                current = current.getNext()
-
-            if previous == None:
-                self.head = current.getNext()
-            else:
-                previous.setNext(current.getNext())
-</code></pre>
-<p>Modify the append method to be O(1)</p>
-<h4 id="The-Ordered-List"><a href="#The-Ordered-List" class="headerlink" title="The Ordered List"></a>The Ordered List</h4><p>The structure of an ordered list is a collection of items where each item holds a relative position that is based upon some underlying characteristic of the item. </p>
-<ul>
-<li><code>OrderedList()</code> creates a new ordered list that is empty. It needs no parameters and returns an empty list.</li>
-<li><code>add(item)</code> adds a new item to the list making sure that the order is preserved. It needs the item and returns nothing. Assume the item is not already in the list.</li>
-<li><code>remove(item)</code> removes the item from the list. It needs the item and modifies the list. Assume the item is present in the list.</li>
-<li><code>search(item)</code> searches for the item in the list. It needs the item and returns a boolean value.</li>
-<li><code>isEmpty()</code> tests to see whether the list is empty. It needs no parameters and returns a boolean value.</li>
-<li><code>size()</code> returns the number of items in the list. It needs no parameters and returns an integer.</li>
-<li><code>index(item)</code> returns the position of item in the list. It needs the item and returns the index. Assume the item is in the list.</li>
-<li><code>pop()</code> removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.</li>
-<li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
-</ul>
-<p>implement</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from Node import Node
-
-class OrderedList:
-    def __init__(self):
-        self.head = None
-
-    def search(self, item):
-        current = self.head
-        while current != None:
-            if current.getData() == item:
-                return True
-            else:
-                if current.getData() > item:
-                    return False
-
-            current = current.getNext()
-
-        return False
-
-    def add(self,item):
-        current = self.head
-        previous = None
-        stop = False
-        while current != None and not stop:
-            if current.getData() > item:
-                stop = True
-            else:
-                previous = current
-                current = current.getNext()
-
-        temp = Node(item)
-        if previous == None:
-            temp.setNext(self.head)
-            self.head = temp
-        else:
-            temp.setNext(current)
-            previous.setNext(temp)
-
-
-    def isEmpty(self):
-        return self.head == None
-
-    def size(self):
-        current = self.head
-        count = 0
-        while current != None:
-            count += 1
-            current = current.getNext()
-
-        return count
-</code></pre>
-<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><pre class=" language-lang-python"><code class="language-lang-python">while True:
-    stuff()
-    if not condition():
-        break
-</code></pre>
-<p>equals:</p>
-<pre class=" language-lang-java"><code class="language-lang-java">do {
-    stuff()
-} while (condition())
-</code></pre>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/26/linear-data-structure/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -966,47 +705,22 @@ class OrderedList:
 
       
         
-          
-            <p>根据<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官方介绍</a>，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+          <p>根据<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官方介绍</a>，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>安装前检查是否安装</p>
 <ul>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></li>
 <li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
 </ul>
 <h3 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>新建名为Hexo文件夹，在目录下运行</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-cli #安装Hexo
+<pre><code class="lang-bash">$ npm install hexo-cli #安装Hexo
 </code></pre>
-<h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>启动Hexo</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g #生成静态文件
-$ hexo s #启动本地web服务
-</code></pre>
-<p>此时打开网址 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 可以看见内置的blog</p>
-<h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>以yilia为例</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia #安装主题
-</code></pre>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ cd themes/yilia #更新主题
-$ git pull
-</code></pre>
-<p>重新启动Hexo，即可看见主题更新</p>
-<h2 id="部署Hexo到GitHub-Pages"><a href="#部署Hexo到GitHub-Pages" class="headerlink" title="部署Hexo到GitHub Pages"></a>部署Hexo到GitHub Pages</h2><h3 id="使用Hexo-deploy部署"><a href="#使用Hexo-deploy部署" class="headerlink" title="使用Hexo deploy部署"></a>使用Hexo deploy部署</h3><p>首先需要安装一个扩展</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-deployer-git --save
-</code></pre>
-<p>修改配置文件<code>/blog/_config.xml</code></p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">deploy:
-  type: git
-  repo: git@github.com:user/user.github.io.git
-  branch: master
-</code></pre>
-<p>执行完成部署</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo d
-</code></pre>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>每次deploy之前要运行, 生成静态文件</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g
-</code></pre>
-<p>需要使用LaTeX时，记得开启</p>
-<pre><code>mathJax: true
-</code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/26/build-hexo-github-pages/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1157,22 +871,17 @@ $ git pull
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo new "My New Post"
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="lang-bash">$ hexo new &quot;My New Post&quot;
 </code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/26/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1323,8 +1032,7 @@ $ git pull
 
       
         
-          
-            <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式通过一些特殊符号的帮助，使用户可以轻松快捷的完成查找、删除、替换等处理程序</p>
+          <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式通过一些特殊符号的帮助，使用户可以轻松快捷的完成查找、删除、替换等处理程序</p>
 <h2 id="正则表达式特殊符号"><a href="#正则表达式特殊符号" class="headerlink" title="正则表达式特殊符号"></a>正则表达式特殊符号</h2><pre><code>[:alnum:]代表英文大小写字母及数字
 [:alpha:]代表英文大小写字母
 [:blank:]代表空格和 tab 键
@@ -1337,52 +1045,14 @@ $ git pull
 [:upper:]代表大写字符
 [:space:]任何会产生空白的字符如空格，tab,CR 等
 [:xdigit:]代表 16 进位的数字类型
-</code></pre><p>利用<code>grep</code>查找文件中的小写字符</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep -n '[[:lower:]]' examples.txt
 </code></pre>
-<h2 id="字符组匹配"><a href="#字符组匹配" class="headerlink" title="字符组匹配"></a>字符组匹配</h2><p><code>[]</code>中包含的任意一个字符，只能是一个<br><code>-</code>表示一个自范围，要求前面字符的码位小于后面字符的码位<br><code>[^...]</code>排除型字符组，表示排除后面的字符</p>
-<p>例如：</p>
-<pre><code>[abc]           ：表示“a”或“b”或“c”
-[0-9]           ：表示 0~9 中任意一个数字，等价于[0123456789]
-[\u4e00-\u9fa5] :表示任意一个汉字
-[^a1&lt;]          :表示除“a”、“1”、“&lt;”外的其它任意一个字符
-[^a-z]          :表示除小写字母外的任意一个字符
-</code></pre><h2 id="任意一个字符-与重复字符"><a href="#任意一个字符-与重复字符" class="headerlink" title="任意一个字符.与重复字符*"></a>任意一个字符<code>.</code>与重复字符<code>*</code></h2><p><code>.</code>表示任意一个字符，一个小数点只能表示一个未知字符</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep -n 'wh.t' examples.txt
-</code></pre>
-<p><code>#</code>表示重复前面0个或者多个字符</p>
-<pre><code>e*： 表示具有空字符或者一个以上 e 字符。
-ee*，表示前面的第一个 e 字符必须存在。第二个 e 则可以是 0 个或者多个 e 字符。
-eee*，表示前面两个 e 字符必须存在。第三个 e 则可以是 0 个或者多个 e 字符。
-ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 则可以是 0 个或者多个 e 字符。
-</code></pre><p>也可用<code>+</code>或者<code>?</code>来表示<br><code>+</code>表示重复1个或者1个以上的前一个字符</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep 'go+d' examples.txt
-</code></pre>
-<p>等价于</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep 'goo#d' examples.txt
-</code></pre>
-<p><code>?</code>表示重复0个或者1个以上前一个字符</p>
-<h2 id="限定连续字符范围"><a href="#限定连续字符范围" class="headerlink" title="限定连续字符范围{}"></a>限定连续字符范围<code>{}</code></h2><p><code>{}</code>可限制一个范围区间内的重复字符数，必要时可能需要转义<br>查找连续的2-5个o</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep -n 'go\{2,5\}g' examples.txt
-</code></pre>
-<h2 id="行首符-和行尾符"><a href="#行首符-和行尾符" class="headerlink" title="行首符^和行尾符$"></a>行首符<code>^</code>和行尾符<code>$</code></h2><pre><code>&#39;^[A-Z]&#39; 表示以大写字母开头。
-</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="表示用或的方式找出数个字符串"><a href="#表示用或的方式找出数个字符串" class="headerlink" title="|表示用或的方式找出数个字符串"></a><code>|</code>表示用或的方式找出数个字符串</h3><h3 id="表示找出群组的字符串"><a href="#表示找出群组的字符串" class="headerlink" title="()表示找出群组的字符串"></a><code>()</code>表示找出群组的字符串</h3><p>搜索glad或者good这两个字符串</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ grep 'g(la|oo)d' examples.txt
-</code></pre>
-<h3 id="多个重复群组判别"><a href="#多个重复群组判别" class="headerlink" title="多个重复群组判别"></a>多个重复群组判别</h3><p><code>A(xyx)+C</code>表示查找<code>A</code>开头<code>C</code>结尾，中间有若干个<code>xyz</code>的字符串</p>
-<h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><p>grep常见参数</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">-a ：将 binary 档案以 text 档案的方式搜寻数据
-
--c ：计算找到 '搜寻字符串' 的次数
-
--i ：忽略大小写的不同，所以大小写视为相同
-
--n ：顺便输出行号
-
--v ：反向选择，亦即显示出没有 '搜寻字符串' 内容的那一行！
-</code></pre>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/21/basic-resgular-expressions/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1533,12 +1203,11 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
 
       
         
-          
-            <p>使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下</p>
-<h3 id="检查电脑是否已经有SSH-key"><a href="#检查电脑是否已经有SSH-key" class="headerlink" title="检查电脑是否已经有SSH key"></a>检查电脑是否已经有SSH key</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ cd ~/.ssh
+          <p>使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下</p>
+<h3 id="检查电脑是否已经有SSH-key"><a href="#检查电脑是否已经有SSH-key" class="headerlink" title="检查电脑是否已经有SSH key"></a>检查电脑是否已经有SSH key</h3><pre><code class="lang-bash">$ cd ~/.ssh
 </code></pre>
 <p>检查<code>.ssh</code>是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。</p>
-<h3 id="生产SSH-key"><a href="#生产SSH-key" class="headerlink" title="生产SSH key"></a>生产SSH key</h3><pre class=" language-lang-bash"><code class="language-lang-bash">$ ssh-keygen -t rsa -C "user_email@example.com"
+<h3 id="生产SSH-key"><a href="#生产SSH-key" class="headerlink" title="生产SSH key"></a>生产SSH key</h3><pre><code class="lang-bash">$ ssh-keygen -t rsa -C &quot;user_email@example.com&quot;
 </code></pre>
 <blockquote>
 <p>-t 指定密钥类型，默认是RSA，可以略去<br>-C 设置注释文字，这里用到的是邮箱<br>-f 指定文件储存的文件名</p>
@@ -1555,20 +1224,14 @@ ee*e ：表示前面的第一个与第三个 e 字符必须存在。第二个 e 
 # Your public key has been saved in /c/Users/user/.ssh/id_rsa.pub.
 # The key fingerprint is:
 # 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db user_email@example.com
-</code></pre><h3 id="添加到GitHub"><a href="#添加到GitHub" class="headerlink" title="添加到GitHub"></a>添加到GitHub</h3><p>复制<code>id_rsa.pub</code>文件的内容，添加到指定位置即可</p>
-<h3 id="测试SSH-key"><a href="#测试SSH-key" class="headerlink" title="测试SSH key"></a>测试SSH key</h3><p>打开Git bash</p>
-<p>输入</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ ssh -T git@github.com
 </code></pre>
-<p>可能出现如下内容</p>
-<pre><code>The authenticity of host &#39;github.com (192.30.252.1)&#39; can&#39;t be established.
-RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-Are you sure you want to continue connecting (yes/no)?
-</code></pre><p>这时只需要输入<code>yes</code>即可，会看到如下提示信息：</p>
-<pre><code>Hi username! You&#39;ve successfully authenticated, but GitHub does not
-provide shell access.
-</code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/19/ssk-key-github/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1719,9 +1382,8 @@ provide shell access.
 
       
         
-          
-            <h2 id="关于Markdown"><a href="#关于Markdown" class="headerlink" title="关于Markdown"></a>关于Markdown</h2><h3 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>在Markdown中只需要在标题前加<code>#</code>即可，共分为六级，按照<code>#</code>数量区分</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown"># 一级标题
+          <h2 id="关于Markdown"><a href="#关于Markdown" class="headerlink" title="关于Markdown"></a>关于Markdown</h2><h3 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>在Markdown中只需要在标题前加<code>#</code>即可，共分为六级，按照<code>#</code>数量区分</p>
+<pre><code class="lang-Markdown"># 一级标题
 ## 二级标题
 ### 三级标题
 #### 四级标题
@@ -1731,128 +1393,22 @@ provide shell access.
 <p><em><code>#</code>和标题之间建议保留一个字符的空格，这是最标准的Markdown写法</em></p>
 <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>Markdown支持有序列表和无序列表</p>
 <p>有序列表在文字前添加 <code>*</code> 或 <code>+</code> 或 <code>-</code> ：</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">* Red
+<pre><code class="lang-Markdown">* Red
 + Green
 - Yellow
 </code></pre>
 <p>无序列表是在文字前加上1. 2. 3.</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">1. First
+<pre><code class="lang-Markdown">1. First
 2. Second
 3. Third
 </code></pre>
-<h4 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h4><p>在引用的文字前添加<code>&gt;</code></p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">> This is a quote.
-</code></pre>
-<h4 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h4><p>代码引用有两种方式</p>
-<p>代码不分行，用<code>` </code></p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">`$ echo "Hello World"`
-</code></pre>
-<p><em>注意：如果要在代码段中加入<code>` </code>，可以用多个引号来开启结束代码区段</em></p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">``There is a literal backtick ` here.``
-</code></pre>
-<p>代码为多行时，将 <code>``` </code> 置于代码的首行和末行, 在<code>``` </code>后增加代码名称如Java, js等能够实现对应代码的代码高亮</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">```java
-public class HelloWorld {
-    public static void main(String[] args) {.
-        System.out.println("Hello, World");
-    }
-
-}
-```
-</code></pre>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>关键字</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Shell</td>
-<td>bash, shell</td>
-<td>-</td>
-</tr>
-<tr>
-<td>C</td>
-<td>cpp, c</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Java</td>
-<td>java</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Delphi</td>
-<td>delphi, pascal, pas</td>
-<td>-</td>
-</tr>
-<tr>
-<td>JavaScript</td>
-<td>js, jscript</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Python</td>
-<td>py, python</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>具体可以参考<a href="http://www.cnblogs.com/qyf404/p/5019631.html" target="_blank" rel="external">博客</a></p>
-<p>支持高亮的显示语言包括</p>
-<h3 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h3><h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>支持的链接有两种方式，行内式和参考式</p>
-<p>行内式链接用<code>[]</code>将链接文字标记，后面紧接<code>()</code>将网址标记</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">You can use [Google](http://google.com)
-</code></pre>
-<p>参考式在链接文字<code>[]</code>后再紧接另一个<code>[]</code>，这个<code>[]</code>内填入用以标识链接的id</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">You can use [Google][google]
-</code></pre>
-<p>再文件的任意位置，将标记的链接内容定义</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">[google]:http://google.com
-</code></pre>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>Markdown使用与链接很相似的方式来插入图片，同样允许两种方式：行内式和参考式</p>
-<p>只需要在链接的语句前加入<code>!</code>即可,<code>[]</code>内放上图片的代替文字</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">![picture](/path/picture.jpg)
-</code></pre>
-<p>参考式与链接类似</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">![picture][pic]
-
-[pic]:/path/picture
-</code></pre>
-<h4 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h4><p>使用 <code>*</code> <code>_</code> <code>**</code> <code>__</code>表示强调，<code>*</code> <code>_</code>相同表示斜体，<code>**</code> <code>__</code>相同表示加粗</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">*斜体强调*
-_斜体强调_
-**加粗强调**
-__加粗强调__
-</code></pre>
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>使用<code>|</code>来分隔不同的单元格，使用<code>-</code>分隔表头与其他行</p>
-<pre class=" language-lang-Markdown"><code class="language-lang-Markdown">|    name    | age |
-| ---------- | --- |
-| LearnShare |  12 |
-| Mike       |  32 |
-</code></pre>
-<h3 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h3><p>Markdown中的转义字符为\，可以转义的字符包括：</p>
-<ul>
-<li>\\</li>
-<li>\`</li>
-<li>\*</li>
-<li>\_</li>
-<li>\{\}</li>
-<li>\[\]</li>
-<li>\(\)</li>
-<li>\#</li>
-<li>\+</li>
-<li>\-</li>
-<li>\.</li>
-<li>\!</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/15/basic-markdown/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2003,8 +1559,7 @@ __加粗强调__
 
       
         
-          
-            <p>本文介绍如何将GitHub上的博客提交给Google。本文主要针对Google，使用Baidu比较麻烦，需要<br>提交很多信息</p>
+          <p>本文介绍如何将GitHub上的博客提交给Google。本文主要针对Google，使用Baidu比较麻烦，需要<br>提交很多信息</p>
 <h2 id="验证网站"><a href="#验证网站" class="headerlink" title="验证网站"></a>验证网站</h2><h3 id="验证网站是否收录"><a href="#验证网站是否收录" class="headerlink" title="验证网站是否收录"></a>验证网站是否收录</h3><p>打开Google，输入</p>
 <blockquote>
 <p>site:https: //user.github.io/</p>
@@ -2015,35 +1570,13 @@ __加粗强调__
 </blockquote>
 <img src="/2017/06/13/google-search-blogs/build-hexo-github-pages0.jpg" alt="build-hexo-github-pages0.jpg" title="">
 <p>说明未被收录，需要进行下面的操作</p>
-<h3 id="Google搜索提交"><a href="#Google搜索提交" class="headerlink" title="Google搜索提交"></a>Google搜索提交</h3><p>进入<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="external">提交地址</a>，登录自己的账号</p>
-<p>在页面中输入自己的博客网址<code>https://user.github.io/</code>，会看见多种验证方式</p>
-<p>我选择的是推荐的：HTML文件上传方式</p>
-<img src="/2017/06/13/google-search-blogs/build-hexo-github-pages1.jpg" alt="build-hexo-github-pages1.jpg" title="">
-<p>我的做法是</p>
-<ul>
-<li>在GitHub目录下直接新建需要的HTML文件</li>
-<li>修改文件内容为要求内容，比如<code>google-site-verification: googlea4c9caaaf6619b2a.html</code></li>
-<li>这是点击验证即可</li>
-</ul>
-<h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><p>网站地图描述了一个网站的架构。它可以使一个任意形式的文档，用作网页设计的设计工具，也可以是列出网站中所有页面的一个网页，通常采用分级形式。这有助于访问者以及搜索引擎的机器人找到网站中的页面。</p>
-<h3 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h3><p>在Hexo目录下，安装</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-generator-sitemap --save
-</code></pre>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开Hexo目录下的<code>_config.xml</code>，在最后添加</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"># 自动生成sitemap
-sitemap:
-path: sitemap.xml
-</code></pre>
-<p>运行</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g #生成静态文件
-$ hexo d #上传到GitHub
-</code></pre>
-<p>这时能够找到<code>public\sitemap.xml</code>文件</p>
-<h3 id="添加站点地图-1"><a href="#添加站点地图-1" class="headerlink" title="添加站点地图"></a>添加站点地图</h3><img src="/2017/06/13/google-search-blogs/build-hexo-github-pages2.jpg" alt="build-hexo-github-pages2.jpg" title="">
-<p>在Google内添加站点地图</p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>提交博客之后，需要等待一段时间才能在Google上搜到，因为Google需要时间来处理我们的请求、抓取相应网页并将其编入索引。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/13/google-search-blogs/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

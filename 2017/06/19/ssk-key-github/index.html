@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下 检查电脑是否已经有SSH key$ cd ~/.ssh  检查.ssh是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。 生产SSH key$ ssh-keygen -t rsa -C &quot;user_email@example.com&quot;   -t 指">
+<meta name="description" content="使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下 检查电脑是否已经有SSH key$ cd ~/.ssh  检查.ssh是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。 生产SSH key$ ssh-keygen -t rsa -C &amp;quot;user_email@example.com&amp;qu">
 <meta name="keywords" content="SSH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在GitHub中添加SSH key">
 <meta property="og:url" content="https://l1zp.github.io/2017/06/19/ssk-key-github/index.html">
 <meta property="og:site_name" content="大四狗肉馆">
-<meta property="og:description" content="使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下 检查电脑是否已经有SSH key$ cd ~/.ssh  检查.ssh是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。 生产SSH key$ ssh-keygen -t rsa -C &quot;user_email@example.com&quot;   -t 指">
-<meta property="og:updated_time" content="2017-06-26T12:19:33.381Z">
+<meta property="og:description" content="使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下 检查电脑是否已经有SSH key$ cd ~/.ssh  检查.ssh是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。 生产SSH key$ ssh-keygen -t rsa -C &amp;quot;user_email@example.com&amp;qu">
+<meta property="og:updated_time" content="2017-07-01T03:51:35.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在GitHub中添加SSH key">
-<meta name="twitter:description" content="使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下 检查电脑是否已经有SSH key$ cd ~/.ssh  检查.ssh是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。 生产SSH key$ ssh-keygen -t rsa -C &quot;user_email@example.com&quot;   -t 指">
+<meta name="twitter:description" content="使用GitHub托管项目时，经常要clone， push等等，需要添加SSH方便操作，具体方法如下 检查电脑是否已经有SSH key$ cd ~/.ssh  检查.ssh是否存在id_rsa.pub和id_dsa.pub，两个文件。如果存在不需要重新生产，可跳过下一步骤。 生产SSH key$ ssh-keygen -t rsa -C &amp;quot;user_email@example.com&amp;qu">
 
 
 
@@ -386,7 +386,8 @@
 # Your public key has been saved in /c/Users/user/.ssh/id_rsa.pub.
 # The key fingerprint is:
 # 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db user_email@example.com
-</code></pre><h3 id="添加到GitHub"><a href="#添加到GitHub" class="headerlink" title="添加到GitHub"></a>添加到GitHub</h3><p>复制<code>id_rsa.pub</code>文件的内容，添加到指定位置即可</p>
+</code></pre><a id="more"></a>
+<h3 id="添加到GitHub"><a href="#添加到GitHub" class="headerlink" title="添加到GitHub"></a>添加到GitHub</h3><p>复制<code>id_rsa.pub</code>文件的内容，添加到指定位置即可</p>
 <h3 id="测试SSH-key"><a href="#测试SSH-key" class="headerlink" title="测试SSH key"></a>测试SSH key</h3><p>打开Git bash</p>
 <p>输入</p>
 <pre class=" language-lang-bash"><code class="language-lang-bash">$ ssh -T git@github.com
