@@ -382,25 +382,7 @@
 </ul>
 <a id="more"></a>
 <p>The implementation is:</p>
-<pre class=" language-lang-python"><code class="language-lang-python">class Stack:
-    def __init__(self):
-        self.items = []
-
-    def isEmpty(self):
-        return self.items == []
-
-    def push(self, item):
-        self.items.append(item)
-
-    def pop(self):
-        return self.items.pop()
-
-    def peek(self):
-        return self.items[len(self.items) - 1]
-
-    def size(self):
-        return len(self.items)
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.items = []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.items == []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, item)</span>:</span></div><div class="line">        self.items.append(item)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.items.pop()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.items[len(self.items) - <span class="number">1</span>]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> len(self.items)</div></pre></td></tr></table></figure>
 <h3 id="Queue-abstract-data-type"><a href="#Queue-abstract-data-type" class="headerlink" title="Queue abstract data type"></a>Queue abstract data type</h3><ul>
 <li><code>Queue()</code> return empty queue</li>
 <li><code>enqueue(item)</code></li>
@@ -408,24 +390,7 @@
 <li><code>isEmpty()</code></li>
 <li><code>size()</code></li>
 </ul>
-<p>The implementation is: </p>
-<pre class=" language-lang-python"><code class="language-lang-python">class Queue:
-
-    def __init__(self):
-        self.items = []
-
-    def isEmpty(self):
-        return self.items == []
-
-    def enqueue(self, item):
-        self.items.insert(0, item)
-
-    def dequeue(self):
-        return self.items.pop()
-
-    def size(self):
-        return len(self.items)
-</code></pre>
+<p>The implementation is:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.items = []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.items == []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, item)</span>:</span></div><div class="line">        self.items.insert(<span class="number">0</span>, item)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.items.pop()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> len(self.items)</div></pre></td></tr></table></figure></p>
 <h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>A deque, also known as a double-ended queue, is an ordered collection of items similar to the queue</p>
 <ul>
 <li><code>Deque()</code> return empty deque</li>
@@ -450,74 +415,7 @@
 <li><code>pop()</code> removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.</li>
 <li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
 </ul>
-<p>Implementation Linked Lists</p>
-<pre class=" language-lang-python"><code class="language-lang-python">class Node:
-    def __init__(self, initData):
-        self.data = initData
-        self.next = None
-
-    def getData(self):
-        return self.data
-
-    def getNext(self):
-        return self.next
-
-    def setData(self, newData):
-        self.data = newData
-
-    def setNext(self, newNode):
-        self.next = newNode
-
-class UnorderedList:
-    def __init__(self):
-        self.head = None
-
-    def isEmpty(self):
-        return self.head == None
-
-    def add(self, item):
-        temp = Node(item)
-        temp.setNext(self.head)
-        self.head = temp
-
-    def size(self):
-        count = 0
-        current = self.head
-        while current != None:
-            current = current.getNext()
-            count += 1
-
-        return count
-
-    def search(self, item):
-        current = self.head
-        found = False
-        while current != None:
-            if item == current.getData():
-                found = True
-                break
-            else:
-                current = current.getNext()
-
-        return found
-
-    def remove(self, item):
-        current = self.head
-        found = False
-        previous = None
-
-        while current != None:
-            if item == current.getData():
-                break
-            else:
-                previous = current
-                current = current.getNext()
-
-            if previous == None:
-                self.head = current.getNext()
-            else:
-                previous.setNext(current.getNext())
-</code></pre>
+<p>Implementation Linked Lists<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, initData)</span>:</span></div><div class="line">        self.data = initData</div><div class="line">        self.next = <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getData</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.data</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getNext</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.next</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setData</span><span class="params">(self, newData)</span>:</span></div><div class="line">        self.data = newData</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setNext</span><span class="params">(self, newNode)</span>:</span></div><div class="line">        self.next = newNode</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnorderedList</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.head = <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.head == <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, item)</span>:</span></div><div class="line">        temp = Node(item)</div><div class="line">        temp.setNext(self.head)</div><div class="line">        self.head = temp</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></div><div class="line">        count = <span class="number">0</span></div><div class="line">        current = self.head</div><div class="line">        <span class="keyword">while</span> current != <span class="keyword">None</span>:</div><div class="line">            current = current.getNext()</div><div class="line">            count += <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">return</span> count</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, item)</span>:</span></div><div class="line">        current = self.head</div><div class="line">        found = <span class="keyword">False</span></div><div class="line">        <span class="keyword">while</span> current != <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">if</span> item == current.getData():</div><div class="line">                found = <span class="keyword">True</span></div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                current = current.getNext()</div><div class="line"></div><div class="line">        <span class="keyword">return</span> found</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, item)</span>:</span></div><div class="line">        current = self.head</div><div class="line">        found = <span class="keyword">False</span></div><div class="line">        previous = <span class="keyword">None</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> current != <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">if</span> item == current.getData():</div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                previous = current</div><div class="line">                current = current.getNext()</div><div class="line"></div><div class="line">            <span class="keyword">if</span> previous == <span class="keyword">None</span>:</div><div class="line">                self.head = current.getNext()</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                previous.setNext(current.getNext())</div></pre></td></tr></table></figure></p>
 <p>Modify the append method to be O(1)</p>
 <h4 id="The-Ordered-List"><a href="#The-Ordered-List" class="headerlink" title="The Ordered List"></a>The Ordered List</h4><p>The structure of an ordered list is a collection of items where each item holds a relative position that is based upon some underlying characteristic of the item. </p>
 <ul>
@@ -532,67 +430,9 @@ class UnorderedList:
 <li><code>pop(pos)</code> removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.</li>
 </ul>
 <p>implement</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from Node import Node
-
-class OrderedList:
-    def __init__(self):
-        self.head = None
-
-    def search(self, item):
-        current = self.head
-        while current != None:
-            if current.getData() == item:
-                return True
-            else:
-                if current.getData() > item:
-                    return False
-
-            current = current.getNext()
-
-        return False
-
-    def add(self,item):
-        current = self.head
-        previous = None
-        stop = False
-        while current != None and not stop:
-            if current.getData() > item:
-                stop = True
-            else:
-                previous = current
-                current = current.getNext()
-
-        temp = Node(item)
-        if previous == None:
-            temp.setNext(self.head)
-            self.head = temp
-        else:
-            temp.setNext(current)
-            previous.setNext(temp)
-
-
-    def isEmpty(self):
-        return self.head == None
-
-    def size(self):
-        current = self.head
-        count = 0
-        while current != None:
-            count += 1
-            current = current.getNext()
-
-        return count
-</code></pre>
-<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><pre class=" language-lang-python"><code class="language-lang-python">while True:
-    stuff()
-    if not condition():
-        break
-</code></pre>
-<p>equals:</p>
-<pre class=" language-lang-java"><code class="language-lang-java">do {
-    stuff()
-} while (condition())
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> Node <span class="keyword">import</span> Node</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrderedList</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.head = <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, item)</span>:</span></div><div class="line">        current = self.head</div><div class="line">        <span class="keyword">while</span> current != <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">if</span> current.getData() == item:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">if</span> current.getData() &gt; item:</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">            current = current.getNext()</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,item)</span>:</span></div><div class="line">        current = self.head</div><div class="line">        previous = <span class="keyword">None</span></div><div class="line">        stop = <span class="keyword">False</span></div><div class="line">        <span class="keyword">while</span> current != <span class="keyword">None</span> <span class="keyword">and</span> <span class="keyword">not</span> stop:</div><div class="line">            <span class="keyword">if</span> current.getData() &gt; item:</div><div class="line">                stop = <span class="keyword">True</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                previous = current</div><div class="line">                current = current.getNext()</div><div class="line"></div><div class="line">        temp = Node(item)</div><div class="line">        <span class="keyword">if</span> previous == <span class="keyword">None</span>:</div><div class="line">            temp.setNext(self.head)</div><div class="line">            self.head = temp</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            temp.setNext(current)</div><div class="line">            previous.setNext(temp)</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.head == <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></div><div class="line">        current = self.head</div><div class="line">        count = <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> current != <span class="keyword">None</span>:</div><div class="line">            count += <span class="number">1</span></div><div class="line">            current = current.getNext()</div><div class="line"></div><div class="line">        <span class="keyword">return</span> count</div></pre></td></tr></table></figure>
+<h3 id="about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this"><a href="#about-the-do-while-loop-in-Python-there-is-no-do-while-loop-in-Python-so-when-can-just-do-as-this" class="headerlink" title="about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:"></a>about the do-while loop in Python, there is no do-while loop in Python, so when can just do as this:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    stuff()</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> condition():</div><div class="line">        <span class="keyword">break</span></div></pre></td></tr></table></figure>
+<p>equals:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">    stuff()</div><div class="line">&#125; <span class="keyword">while</span> (condition())</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -635,8 +475,8 @@ class OrderedList:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/26/build-hexo-github-pages/" rel="next" title="使用Hexo + GitHub Pages 搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 使用Hexo + GitHub Pages 搭建个人博客
+              <a href="/2017/06/26/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>

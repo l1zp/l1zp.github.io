@@ -412,14 +412,7 @@
 <li>Parameter vector $\theta$<ul>
 <li>$\theta \in \Bbb{R}^n$ (E.g. $\theta$ is “unrolled version of $Θ^{(1)}, Θ^{(2)}, Θ^{(3)})$</li>
 <li>$\theta = \theta_1, \theta_2, \ldots, \theta_n$</li>
-<li>$\frac{\partial}{\partial\theta_2}J(\theta) \approx \frac{J(\theta_1,\theta_2,\ldots,\theta_n+\varepsilon)-J(\theta_1,\theta_2,\ldots,\theta_n-\varepsilon)}{2\varepsilon}$<pre class=" language-lang-matlab"><code class="language-lang-matlab">for i = 1:n,
-thetaPlus = theta;
-thetaPlus(i) = thetaPlus(i) + EPSILON;
-thetaMinus = theta;
-thetaMinus(i) = thetaPlus(i) - EPSILON;
-gradApprox(i) = (J(thetaPlus)-J(thetaMinus))/(2*EPSILON);
-end;
-</code></pre>
+<li>$\frac{\partial}{\partial\theta_2}J(\theta) \approx \frac{J(\theta_1,\theta_2,\ldots,\theta_n+\varepsilon)-J(\theta_1,\theta_2,\ldots,\theta_n-\varepsilon)}{2\varepsilon}$<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:n,</div><div class="line">    thetaPlus = theta;</div><div class="line">    thetaPlus(<span class="built_in">i</span>) = thetaPlus(<span class="built_in">i</span>) + EPSILON;</div><div class="line">    thetaMinus = theta;</div><div class="line">    thetaMinus(<span class="built_in">i</span>) = thetaPlus(<span class="built_in">i</span>) - EPSILON;</div><div class="line">    gradApprox(<span class="built_in">i</span>) = (J(thetaPlus)-J(thetaMinus))/(<span class="number">2</span>*EPSILON);</div><div class="line"><span class="keyword">end</span>;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -428,9 +421,7 @@ end;
 <li><p>Use gradien descent or advanced optimization method with backpropagation to minimize $J(Θ)$ as function of parameters $Θ$</p>
 <ul>
 <li>Initialize each $\Theta$ to random value in $\left[-\varepsilon, \varepsilon \right]$</li>
-<li>E.g.<pre class=" language-lang-matlab"><code class="language-lang-matlab">Theta1 = rand(10,11)*(2*INIT_EPSILON) - INIT_EPSILON;
-</code></pre>
-</li>
+<li>E.g.<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Theta1 = <span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">11</span>)*(<span class="number">2</span>*INIT_EPSILON) - INIT_EPSILON;</div></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ol>

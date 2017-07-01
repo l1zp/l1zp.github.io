@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 $ npm install hexo-cli #安装Hexo">
+<meta name="description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 1$ npm install hexo-cli #安装Hexo">
 <meta name="keywords" content="Hexo,GitHub Pages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Hexo + GitHub Pages 搭建个人博客">
 <meta property="og:url" content="https://l1zp.github.io/2017/06/26/build-hexo-github-pages/index.html">
 <meta property="og:site_name" content="大四狗肉馆">
-<meta property="og:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 $ npm install hexo-cli #安装Hexo">
+<meta property="og:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 1$ npm install hexo-cli #安装Hexo">
 <meta property="og:updated_time" content="2017-07-01T03:52:30.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo + GitHub Pages 搭建个人博客">
-<meta name="twitter:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 $ npm install hexo-cli #安装Hexo">
+<meta name="twitter:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 1$ npm install hexo-cli #安装Hexo">
 
 
 
@@ -372,39 +372,25 @@
 <li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
 </ul>
 <h3 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>新建名为Hexo文件夹，在目录下运行</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-cli #安装Hexo
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli <span class="comment">#安装Hexo</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>启动Hexo</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g #生成静态文件
-$ hexo s #启动本地web服务
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g <span class="comment">#生成静态文件</span></div><div class="line">$ hexo s <span class="comment">#启动本地web服务</span></div></pre></td></tr></table></figure>
 <p>此时打开网址 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 可以看见内置的blog</p>
 <h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>以yilia为例</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia #安装主题
-</code></pre>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ cd themes/yilia #更新主题
-$ git pull
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia <span class="comment">#安装主题</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> themes/yilia <span class="comment">#更新主题</span></div><div class="line">$ git pull</div></pre></td></tr></table></figure>
 <p>重新启动Hexo，即可看见主题更新</p>
 <h2 id="部署Hexo到GitHub-Pages"><a href="#部署Hexo到GitHub-Pages" class="headerlink" title="部署Hexo到GitHub Pages"></a>部署Hexo到GitHub Pages</h2><h3 id="使用Hexo-deploy部署"><a href="#使用Hexo-deploy部署" class="headerlink" title="使用Hexo deploy部署"></a>使用Hexo deploy部署</h3><p>首先需要安装一个扩展</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-deployer-git --save
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <p>修改配置文件<code>/blog/_config.xml</code></p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">deploy:
-  type: git
-  repo: git@github.com:user/user.github.io.git
-  branch: master
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: git@github.com:user/user.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 <p>执行完成部署</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo d
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>每次deploy之前要运行, 生成静态文件</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g
-</code></pre>
-<p>需要使用LaTeX时，记得开启</p>
-<pre><code>mathJax: true
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure>
+<p>需要使用LaTeX时，记得开启<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">mathJax:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -448,8 +434,8 @@ $ git pull
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/26/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/06/21/basic-resgular-expressions/" rel="next" title="正则表达式基础介绍">
+                <i class="fa fa-chevron-left"></i> 正则表达式基础介绍
               </a>
             
           </div>
@@ -458,8 +444,8 @@ $ git pull
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/26/linear-data-structure/" rel="prev" title="Linear Data Structure">
-                Linear Data Structure <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/26/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

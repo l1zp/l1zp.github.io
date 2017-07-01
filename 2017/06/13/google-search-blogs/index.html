@@ -393,17 +393,10 @@
 </ul>
 <h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><p>网站地图描述了一个网站的架构。它可以使一个任意形式的文档，用作网页设计的设计工具，也可以是列出网站中所有页面的一个网页，通常采用分级形式。这有助于访问者以及搜索引擎的机器人找到网站中的页面。</p>
 <h3 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h3><p>在Hexo目录下，安装</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ npm install hexo-generator-sitemap --save
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开Hexo目录下的<code>_config.xml</code>，在最后添加</p>
-<pre class=" language-lang-xml"><code class="language-lang-xml"># 自动生成sitemap
-sitemap:
-path: sitemap.xml
-</code></pre>
-<p>运行</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">$ hexo g #生成静态文件
-$ hexo d #上传到GitHub
-</code></pre>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 自动生成sitemap</div><div class="line">sitemap:</div><div class="line">path: sitemap.xml</div></pre></td></tr></table></figure>
+<p>运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g <span class="comment">#生成静态文件</span></div><div class="line">$ hexo d <span class="comment">#上传到GitHub</span></div></pre></td></tr></table></figure></p>
 <p>这时能够找到<code>public\sitemap.xml</code>文件</p>
 <h3 id="添加站点地图-1"><a href="#添加站点地图-1" class="headerlink" title="添加站点地图"></a>添加站点地图</h3><img src="/2017/06/13/google-search-blogs/build-hexo-github-pages2.jpg" alt="build-hexo-github-pages2.jpg" title="">
 <p>在Google内添加站点地图</p>
