@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="multithereading," />
 
 
 
@@ -87,16 +87,17 @@
 
 
 
-<meta name="description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
+<meta name="description" content="考虑下面的代码，按照道理不可能出现x &amp;lt; y的情况。 12345678910111213141516171819202122232425262728293031class Something &amp;#123;    private int x = 0, y = 0;    public void write() &amp;#123;        x = 100;        y = 50;    &amp;">
+<meta name="keywords" content="multithereading">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ML(5) NN:Learning">
-<meta property="og:url" content="https://l1zp.github.io/2017/06/30/machine-learning-w5/index.html">
+<meta property="og:title" content="重排序对多线程的影响">
+<meta property="og:url" content="https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/index.html">
 <meta property="og:site_name" content="大四狗肉馆">
-<meta property="og:description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
-<meta property="og:updated_time" content="2017-07-01T03:53:00.000Z">
+<meta property="og:description" content="考虑下面的代码，按照道理不可能出现x &amp;lt; y的情况。 12345678910111213141516171819202122232425262728293031class Something &amp;#123;    private int x = 0, y = 0;    public void write() &amp;#123;        x = 100;        y = 50;    &amp;">
+<meta property="og:updated_time" content="2018-09-10T05:53:44.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ML(5) NN:Learning">
-<meta name="twitter:description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
+<meta name="twitter:title" content="重排序对多线程的影响">
+<meta name="twitter:description" content="考虑下面的代码，按照道理不可能出现x &amp;lt; y的情况。 12345678910111213141516171819202122232425262728293031class Something &amp;#123;    private int x = 0, y = 0;    public void write() &amp;#123;        x = 100;        y = 50;    &amp;">
 
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://l1zp.github.io/2017/06/30/machine-learning-w5/"/>
+  <link rel="canonical" href="https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/"/>
 
 
 
 
 
-  <title> ML(5) NN:Learning | 大四狗肉馆 </title>
+  <title> 重排序对多线程的影响 | 大四狗肉馆 </title>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -259,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2017/06/30/machine-learning-w5/">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Light Lee">
@@ -280,7 +281,7 @@
             
             
               
-                ML(5) NN:Learning
+                重排序对多线程的影响
               
             
           </h1>
@@ -295,8 +296,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T20:46:23+08:00">
-                2017-06-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T13:52:03+08:00">
+                2018-09-10
               </time>
             
 
@@ -318,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -336,9 +337,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/30/machine-learning-w5/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/10/influence-of-reorder-on-multithreading/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/30/machine-learning-w5/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/10/influence-of-reorder-on-multithreading/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,67 +365,9 @@
       
 
       
-        <p>Neural network:</p>
-<p>cost function</p>
-<script type="math/tex; mode=display">h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} output</script><script type="math/tex; mode=display">J(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right]+\frac{\lambda}{2m}\sum^{L-1}_{l-1}\sum^{s_l}_{i=1}\sum^{s_l+1}_{j=1}(Θ^{(l)}_{ji})^2</script><ol>
-<li><p>Randomly initialize weights</p>
-</li>
-<li><p>Implement forward propagation to get $h_{Θ}(x^{(i)})$ for any $x^{(i)}$</p>
-</li>
-<li><p>Implement code to compute cost function $J(Θ)$</p>
-</li>
-</ol>
-<a id="more"></a>
-<ol>
-<li><p>Imlement backpropagation to compute partial derivatives </p>
-<script type="math/tex; mode=display">\frac{\partial}{\partial Θ^l_{jk}}J(Θ)</script><ul>
-<li>Training set <script type="math/tex; mode=display">\left\{(x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)})\right\}</script></li>
-</ul>
-<ul>
-<li><p>Set $\Delta^{(l)}_{ij}=0$ (for all $l,i,j$)</p>
-<ul>
-<li><p>For i = 1 to m</p>
-<ul>
-<li>Set $a^{(1)} = x^{(i)}$</li>
-<li><p>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\ldots,L$ </p>
-<blockquote>
-<p>$a^{(1)} = x$<br>$z^{(2)} = Θ^{(1)}a^{(1)}$<br>$a^{(2)} = g(z^{(2)})(add\quad a^{(2)}_0$)</p>
-</blockquote>
-</li>
-<li><p>Using $y^{(i)}$, compute $\delta^{L}=a^{L}-y^{(i)}$</p>
-</li>
-<li><p>compute $\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$</p>
-<blockquote>
-<p>$\delta^{(4)}_j=a^{(4)}_j-y_j$<br>$\delta^{(3)}=(Θ^{(3)})^T\delta^{(4)}.*g^{\prime} (z^{(2)})$</p>
-</blockquote>
-</li>
-<li><script type="math/tex; mode=display">\Delta ^{(l)}_{ij}:= \Delta ^{(l)}_{ij}+a^{(l)}_j \delta ^{(l+1)}_i</script></li>
-<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij} \qquad for\quad j=0</script></li>
-<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij}+\frac{\lambda}m\Theta^{(l)}_{ij} \qquad for\quad j\geq1</script></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Use gradient checking to compare $\frac{\partial}{\partial Θ^l_{jk}}J(Θ)$ computed using backpropagation vs. using numerical estimate of gradient of $J(Θ)$</p>
-<ul>
-<li>Parameter vector $\theta$<ul>
-<li>$\theta \in \Bbb{R}^n$ (E.g. $\theta$ is “unrolled version of $Θ^{(1)}, Θ^{(2)}, Θ^{(3)})$</li>
-<li>$\theta = \theta_1, \theta_2, \ldots, \theta_n$</li>
-<li>$\frac{\partial}{\partial\theta_2}J(\theta) \approx \frac{J(\theta_1,\theta_2,\ldots,\theta_n+\varepsilon)-J(\theta_1,\theta_2,\ldots,\theta_n-\varepsilon)}{2\varepsilon}$<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:n,</div><div class="line">    thetaPlus = theta;</div><div class="line">    thetaPlus(<span class="built_in">i</span>) = thetaPlus(<span class="built_in">i</span>) + EPSILON;</div><div class="line">    thetaMinus = theta;</div><div class="line">    thetaMinus(<span class="built_in">i</span>) = thetaPlus(<span class="built_in">i</span>) - EPSILON;</div><div class="line">    gradApprox(<span class="built_in">i</span>) = (J(thetaPlus)-J(thetaMinus))/(<span class="number">2</span>*EPSILON);</div><div class="line"><span class="keyword">end</span>;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Use gradien descent or advanced optimization method with backpropagation to minimize $J(Θ)$ as function of parameters $Θ$</p>
-<ul>
-<li>Initialize each $\Theta$ to random value in $\left[-\varepsilon, \varepsilon \right]$</li>
-<li>E.g.<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Theta1 = <span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">11</span>)*(<span class="number">2</span>*INIT_EPSILON) - INIT_EPSILON;</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
+        <p>考虑下面的代码，按照道理不可能出现<code>x &lt; y</code>的情况。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Something</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</div><div class="line">        x = <span class="number">100</span>;</div><div class="line">        y = <span class="number">50</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (x &lt; y)</div><div class="line">            System.out.print(<span class="string">"x &lt; y"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Something obj = <span class="keyword">new</span> Something();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                obj.write();</div><div class="line">            &#125;</div><div class="line">        &#125;.run();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                obj.write();</div><div class="line">            &#125;</div><div class="line">        &#125;.run();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是在实际运行中却可能出现，主要原因就是重排序的影响。犹豫对于x的赋值和y的赋值之间不存在依存关系，编译器可能改变顺序。</p>
 
       
     </div>
@@ -452,6 +395,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/multithereading/" rel="tag"># multithereading</a>
+          
+        </div>
+      
 
       
         
@@ -461,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/26/linear-data-structure/" rel="next" title="Linear Data Structure">
-                <i class="fa fa-chevron-left"></i> Linear Data Structure
+              <a href="/2018/09/10/multithreading/" rel="next" title="multithreading">
+                <i class="fa fa-chevron-left"></i> multithreading
               </a>
             
           </div>
@@ -470,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/01/machine-learning-w6/" rel="prev" title="machine-learning-w6">
-                machine-learning-w6 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -748,9 +693,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://l1zp.github.io/2017/06/30/machine-learning-w5/';
-          this.page.identifier = '2017/06/30/machine-learning-w5/';
-          this.page.title = 'ML(5) NN:Learning';
+          this.page.url = 'https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/';
+          this.page.identifier = '2018/09/10/influence-of-reorder-on-multithreading/';
+          this.page.title = '重排序对多线程的影响';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-l1zp-github-io.disqus.com/embed.js';
