@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo,GitHub Pages," />
 
 
 
@@ -87,16 +87,17 @@
 
 
 
-<meta name="description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
+<meta name="description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 1$ npm install hexo-cli #安装Hexo">
+<meta name="keywords" content="Hexo,GitHub Pages">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ML(5) NN:Learning">
-<meta property="og:url" content="https://l1zp.github.io/2017/06/30/machine-learning-w5/index.html">
+<meta property="og:title" content="使用Hexo + GitHub Pages 搭建个人博客">
+<meta property="og:url" content="https://l1zp.github.io/2018/09/10/build-hexo-github-pages/index.html">
 <meta property="og:site_name" content="大四狗肉馆">
-<meta property="og:description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
-<meta property="og:updated_time" content="2017-07-01T03:53:00.000Z">
+<meta property="og:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 1$ npm install hexo-cli #安装Hexo">
+<meta property="og:updated_time" content="2017-07-01T03:52:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ML(5) NN:Learning">
-<meta name="twitter:description" content="Neural network: cost function h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} outputJ(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right">
+<meta name="twitter:title" content="使用Hexo + GitHub Pages 搭建个人博客">
+<meta name="twitter:description" content="根据Hexo官方介绍，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装Hexo安装前提安装前检查是否安装  Node.js Git  安装Hexo新建名为Hexo文件夹，在目录下运行 1$ npm install hexo-cli #安装Hexo">
 
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://l1zp.github.io/2017/06/30/machine-learning-w5/"/>
+  <link rel="canonical" href="https://l1zp.github.io/2018/09/10/build-hexo-github-pages/"/>
 
 
 
 
 
-  <title> ML(5) NN:Learning | 大四狗肉馆 </title>
+  <title> 使用Hexo + GitHub Pages 搭建个人博客 | 大四狗肉馆 </title>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -259,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2017/06/30/machine-learning-w5/">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2018/09/10/build-hexo-github-pages/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Light Lee">
@@ -280,7 +281,7 @@
             
             
               
-                ML(5) NN:Learning
+                使用Hexo + GitHub Pages 搭建个人博客
               
             
           </h1>
@@ -295,8 +296,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T20:46:23+08:00">
-                2017-06-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T11:10:55+08:00">
+                2018-09-10
               </time>
             
 
@@ -318,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                  <a href="/categories/Blogs/" itemprop="url" rel="index">
+                    <span itemprop="name">Blogs</span>
                   </a>
                 </span>
 
@@ -336,9 +337,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/30/machine-learning-w5/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/10/build-hexo-github-pages/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/30/machine-learning-w5/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/10/build-hexo-github-pages/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,67 +365,31 @@
       
 
       
-        <p>Neural network:</p>
-<p>cost function</p>
-<script type="math/tex; mode=display">h_Θ(x) \in \Bbb{R}^K \quad (h_Θ(x))_i = i^{th} output</script><script type="math/tex; mode=display">J(Θ) = -\frac 1m\left[\sum^m_{i=1}\sum^K_{k=1}y^{(i)}_klog(h_Θ(x^{(i)})_k+(1-y^{(i)}_k)log(1-(h_Θ(x^{(i)}))_k) \right]+\frac{\lambda}{2m}\sum^{L-1}_{l-1}\sum^{s_l}_{i=1}\sum^{s_l+1}_{j=1}(Θ^{(l)}_{ji})^2</script><ol>
-<li><p>Randomly initialize weights</p>
-</li>
-<li><p>Implement forward propagation to get $h_{Θ}(x^{(i)})$ for any $x^{(i)}$</p>
-</li>
-<li><p>Implement code to compute cost function $J(Θ)$</p>
-</li>
-</ol>
+        <p>根据<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官方介绍</a>，Hexo 一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>安装前检查是否安装</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
+</ul>
+<h3 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>新建名为Hexo文件夹，在目录下运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli <span class="comment">#安装Hexo</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
-<ol>
-<li><p>Imlement backpropagation to compute partial derivatives </p>
-<script type="math/tex; mode=display">\frac{\partial}{\partial Θ^l_{jk}}J(Θ)</script><ul>
-<li>Training set <script type="math/tex; mode=display">\left\{(x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)})\right\}</script></li>
-</ul>
-<ul>
-<li><p>Set $\Delta^{(l)}_{ij}=0$ (for all $l,i,j$)</p>
-<ul>
-<li><p>For i = 1 to m</p>
-<ul>
-<li>Set $a^{(1)} = x^{(i)}$</li>
-<li><p>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\ldots,L$ </p>
-<blockquote>
-<p>$a^{(1)} = x$<br>$z^{(2)} = Θ^{(1)}a^{(1)}$<br>$a^{(2)} = g(z^{(2)})(add\quad a^{(2)}_0$)</p>
-</blockquote>
-</li>
-<li><p>Using $y^{(i)}$, compute $\delta^{L}=a^{L}-y^{(i)}$</p>
-</li>
-<li><p>compute $\delta^{(L-1)},\delta^{(L-2)},\ldots,\delta^{(2)}$</p>
-<blockquote>
-<p>$\delta^{(4)}_j=a^{(4)}_j-y_j$<br>$\delta^{(3)}=(Θ^{(3)})^T\delta^{(4)}.*g^{\prime} (z^{(2)})$</p>
-</blockquote>
-</li>
-<li><script type="math/tex; mode=display">\Delta ^{(l)}_{ij}:= \Delta ^{(l)}_{ij}+a^{(l)}_j \delta ^{(l+1)}_i</script></li>
-<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij} \qquad for\quad j=0</script></li>
-<li><script type="math/tex; mode=display">\frac{\partial}{\partial \Theta^{(l)}_{ij}}J(\Theta)=D^{(l)}_{ij}=\frac1m\Delta^{(l)}_{ij}+\frac{\lambda}m\Theta^{(l)}_{ij} \qquad for\quad j\geq1</script></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Use gradient checking to compare $\frac{\partial}{\partial Θ^l_{jk}}J(Θ)$ computed using backpropagation vs. using numerical estimate of gradient of $J(Θ)$</p>
-<ul>
-<li>Parameter vector $\theta$<ul>
-<li>$\theta \in \Bbb{R}^n$ (E.g. $\theta$ is “unrolled version of $Θ^{(1)}, Θ^{(2)}, Θ^{(3)})$</li>
-<li>$\theta = \theta_1, \theta_2, \ldots, \theta_n$</li>
-<li>$\frac{\partial}{\partial\theta_2}J(\theta) \approx \frac{J(\theta_1,\theta_2,\ldots,\theta_n+\varepsilon)-J(\theta_1,\theta_2,\ldots,\theta_n-\varepsilon)}{2\varepsilon}$<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:n,</div><div class="line">    thetaPlus = theta;</div><div class="line">    thetaPlus(<span class="built_in">i</span>) = thetaPlus(<span class="built_in">i</span>) + EPSILON;</div><div class="line">    thetaMinus = theta;</div><div class="line">    thetaMinus(<span class="built_in">i</span>) = thetaPlus(<span class="built_in">i</span>) - EPSILON;</div><div class="line">    gradApprox(<span class="built_in">i</span>) = (J(thetaPlus)-J(thetaMinus))/(<span class="number">2</span>*EPSILON);</div><div class="line"><span class="keyword">end</span>;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Use gradien descent or advanced optimization method with backpropagation to minimize $J(Θ)$ as function of parameters $Θ$</p>
-<ul>
-<li>Initialize each $\Theta$ to random value in $\left[-\varepsilon, \varepsilon \right]$</li>
-<li>E.g.<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Theta1 = <span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">11</span>)*(<span class="number">2</span>*INIT_EPSILON) - INIT_EPSILON;</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
+<h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>启动Hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g <span class="comment">#生成静态文件</span></div><div class="line">$ hexo s <span class="comment">#启动本地web服务</span></div></pre></td></tr></table></figure>
+<p>此时打开网址 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 可以看见内置的blog</p>
+<h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>以yilia为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia <span class="comment">#安装主题</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> themes/yilia <span class="comment">#更新主题</span></div><div class="line">$ git pull</div></pre></td></tr></table></figure>
+<p>重新启动Hexo，即可看见主题更新</p>
+<h2 id="部署Hexo到GitHub-Pages"><a href="#部署Hexo到GitHub-Pages" class="headerlink" title="部署Hexo到GitHub Pages"></a>部署Hexo到GitHub Pages</h2><h3 id="使用Hexo-deploy部署"><a href="#使用Hexo-deploy部署" class="headerlink" title="使用Hexo deploy部署"></a>使用Hexo deploy部署</h3><p>首先需要安装一个扩展</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>修改配置文件<code>/blog/_config.xml</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: git@github.com:user/user.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>执行完成部署</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>每次deploy之前要运行, 生成静态文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure>
+<p>需要使用LaTeX时，记得开启<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">mathJax:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -452,6 +417,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/GitHub-Pages/" rel="tag"># GitHub Pages</a>
+          
+        </div>
+      
 
       
         
@@ -461,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/26/linear-data-structure/" rel="next" title="Linear Data Structure">
-                <i class="fa fa-chevron-left"></i> Linear Data Structure
+              <a href="/2017/07/01/machine-learning-w6/" rel="next" title="machine-learning-w6">
+                <i class="fa fa-chevron-left"></i> machine-learning-w6
               </a>
             
           </div>
@@ -471,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/01/machine-learning-w6/" rel="prev" title="machine-learning-w6">
-                machine-learning-w6 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/10/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -527,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -610,6 +592,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装前提"><span class="nav-number">1.1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo-1"><span class="nav-number">1.2.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署Hexo"><span class="nav-number">2.</span> <span class="nav-text">部署Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地预览"><span class="nav-number">2.1.</span> <span class="nav-text">本地预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题安装"><span class="nav-number">2.2.</span> <span class="nav-text">主题安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署Hexo到GitHub-Pages"><span class="nav-number">3.</span> <span class="nav-text">部署Hexo到GitHub Pages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Hexo-deploy部署"><span class="nav-number">3.1.</span> <span class="nav-text">使用Hexo deploy部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">3.2.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -748,9 +746,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://l1zp.github.io/2017/06/30/machine-learning-w5/';
-          this.page.identifier = '2017/06/30/machine-learning-w5/';
-          this.page.title = 'ML(5) NN:Learning';
+          this.page.url = 'https://l1zp.github.io/2018/09/10/build-hexo-github-pages/';
+          this.page.identifier = '2018/09/10/build-hexo-github-pages/';
+          this.page.title = '使用Hexo + GitHub Pages 搭建个人博客';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-l1zp-github-io.disqus.com/embed.js';
