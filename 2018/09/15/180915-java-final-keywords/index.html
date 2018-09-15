@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="multithereading," />
+  <meta name="keywords" content="final," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="考虑下面的代码，按照道理不可能出现x &amp;lt; y的情况。 12345678910111213141516171819202122232425262728293031class Something &amp;#123;    private int x = 0, y = 0;    public void write() &amp;#123;        x = 100;        y = 50;    &amp;">
-<meta name="keywords" content="multithereading">
+<meta name="description" content="final数据 对于基本类型，final使数值恒定不变 对于对象引用，final一旦引用被初始化一个对象，就无法改变指向另一个对象。到那时对象其本身的值是可变的  关于static和final static 主要是唯一性，final则是不可变  空白final声明为final但又未给定 final参数1234567891011121314151617181920212223class Gimzo">
+<meta name="keywords" content="final">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重排序对多线程的影响">
-<meta property="og:url" content="https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/index.html">
+<meta property="og:title" content="final关键字">
+<meta property="og:url" content="https://l1zp.github.io/2018/09/15/180915-java-final-keywords/index.html">
 <meta property="og:site_name" content="大四狗肉馆">
-<meta property="og:description" content="考虑下面的代码，按照道理不可能出现x &amp;lt; y的情况。 12345678910111213141516171819202122232425262728293031class Something &amp;#123;    private int x = 0, y = 0;    public void write() &amp;#123;        x = 100;        y = 50;    &amp;">
-<meta property="og:updated_time" content="2018-09-10T05:53:44.173Z">
+<meta property="og:description" content="final数据 对于基本类型，final使数值恒定不变 对于对象引用，final一旦引用被初始化一个对象，就无法改变指向另一个对象。到那时对象其本身的值是可变的  关于static和final static 主要是唯一性，final则是不可变  空白final声明为final但又未给定 final参数1234567891011121314151617181920212223class Gimzo">
+<meta property="og:updated_time" content="2018-09-15T08:03:25.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重排序对多线程的影响">
-<meta name="twitter:description" content="考虑下面的代码，按照道理不可能出现x &amp;lt; y的情况。 12345678910111213141516171819202122232425262728293031class Something &amp;#123;    private int x = 0, y = 0;    public void write() &amp;#123;        x = 100;        y = 50;    &amp;">
+<meta name="twitter:title" content="final关键字">
+<meta name="twitter:description" content="final数据 对于基本类型，final使数值恒定不变 对于对象引用，final一旦引用被初始化一个对象，就无法改变指向另一个对象。到那时对象其本身的值是可变的  关于static和final static 主要是唯一性，final则是不可变  空白final声明为final但又未给定 final参数1234567891011121314151617181920212223class Gimzo">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/"/>
+  <link rel="canonical" href="https://l1zp.github.io/2018/09/15/180915-java-final-keywords/"/>
 
 
 
 
 
-  <title> 重排序对多线程的影响 | 大四狗肉馆 </title>
+  <title> final关键字 | 大四狗肉馆 </title>
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -260,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2018/09/15/180915-java-final-keywords/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Light Lee">
@@ -281,7 +281,7 @@
             
             
               
-                重排序对多线程的影响
+                final关键字
               
             
           </h1>
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T13:52:03+08:00">
-                2018-09-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T16:01:39+08:00">
+                2018-09-15
               </time>
             
 
@@ -337,9 +337,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/10/influence-of-reorder-on-multithreading/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/15/180915-java-final-keywords/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/10/influence-of-reorder-on-multithreading/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/15/180915-java-final-keywords/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,9 +365,19 @@
       
 
       
-        <p>考虑下面的代码，按照道理不可能出现<code>x &lt; y</code>的情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Something</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</div><div class="line">        x = <span class="number">100</span>;</div><div class="line">        y = <span class="number">50</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (x &lt; y)</div><div class="line">            System.out.print(<span class="string">"x &lt; y"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Something obj = <span class="keyword">new</span> Something();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                obj.write();</div><div class="line">            &#125;</div><div class="line">        &#125;.run();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                obj.write();</div><div class="line">            &#125;</div><div class="line">        &#125;.run();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但是在实际运行中却可能出现，主要原因就是重排序的影响。犹豫对于x的赋值和y的赋值之间不存在依存关系，编译器可能改变顺序。</p>
+        <h3 id="final数据"><a href="#final数据" class="headerlink" title="final数据"></a><code>final</code>数据</h3><ul>
+<li>对于基本类型，<code>final</code>使数值恒定不变</li>
+<li>对于对象引用，<code>final</code>一旦引用被初始化一个对象，就无法改变指向另一个对象。到那时对象其本身的值是可变的</li>
+</ul>
+<h5 id="关于static和final"><a href="#关于static和final" class="headerlink" title="关于static和final"></a>关于<code>static</code>和<code>final</code></h5><ul>
+<li><code>static</code> 主要是唯一性，<code>final</code>则是不可变</li>
+</ul>
+<h5 id="空白final"><a href="#空白final" class="headerlink" title="空白final"></a>空白<code>final</code></h5><p>声明为<code>final</code>但又未给定</p>
+<h5 id="final参数"><a href="#final参数" class="headerlink" title="final参数"></a><code>final</code>参数</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Gimzo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">spin</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FinalArguments</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">with</span><span class="params">(<span class="keyword">final</span> Gimzo gimzo)</span></span>&#123;</div><div class="line">        <span class="comment">//! g = new Gimzo(); // Illegal -- g is final</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">without</span><span class="params">(Gimzo gimzo)</span></span>&#123;</div><div class="line">        gimzo = <span class="keyword">new</span> Gimzo();</div><div class="line">        gimzo.spin();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// void f(final int i) &#123; i ++; &#125; // can't change</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> i + <span class="number">1</span>; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        FinalArguments bf = <span class="keyword">new</span> FinalArguments();</div><div class="line">        bf.without(<span class="keyword">null</span>);</div><div class="line">        bf.with(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a><code>final</code>方法</h5><p>把方法锁定，防止任何继承类修改它的含义。</p>
+<h5 id="final类"><a href="#final类" class="headerlink" title="final类"></a><code>final</code>类</h5><p>防止被继承</p>
+<h5 id="继承和初始化"><a href="#继承和初始化" class="headerlink" title="继承和初始化"></a>继承和初始化</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Insect</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">9</span>;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> j;</div><div class="line">    Insect()&#123;</div><div class="line">        System.out.println(<span class="string">"i = "</span> + i + <span class="string">", j = "</span> + j);</div><div class="line">        j = <span class="number">39</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> x1 = printInt(<span class="string">"static Insect.x1 initialized"</span>);</div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">printInt</span><span class="params">(String s)</span></span>&#123;</div><div class="line">        System.out.println(s);</div><div class="line">        <span class="keyword">return</span> <span class="number">47</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Beetle</span> <span class="keyword">extends</span> <span class="title">Insect</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> k = printInt(<span class="string">"Beetle.l initialized"</span>);</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Beetle</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"k = "</span> + k);</div><div class="line">        System.out.println(<span class="string">"j = "</span> + j);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> x2 = printInt(<span class="string">"static Beetle.x2 initialized"</span>);</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Beetle constructor"</span>);</div><div class="line">        Beetle b = <span class="keyword">new</span> Beetle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>加载<code>Beetle</code>类的过程中，编译器注意到它有一个基类。不管是否打算产生于一个基类的对象，这都要发生。</p>
 
       
     </div>
@@ -397,7 +407,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/multithereading/" rel="tag"># multithereading</a>
+            <a href="/tags/final/" rel="tag"># final</a>
           
         </div>
       
@@ -410,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/10/build-hexo-github-pages/" rel="next" title="使用Hexo + GitHub Pages 搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 使用Hexo + GitHub Pages 搭建个人博客
+              <a href="/2018/09/10/influence-of-reorder-on-multithreading/" rel="next" title="重排序对多线程的影响">
+                <i class="fa fa-chevron-left"></i> 重排序对多线程的影响
               </a>
             
           </div>
@@ -419,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/15/180915-java-final-keywords/" rel="prev" title="final关键字">
-                final关键字 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -476,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -559,6 +574,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#final数据"><span class="nav-number">1.</span> <span class="nav-text">final数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关于static和final"><span class="nav-number">1.0.1.</span> <span class="nav-text">关于static和final</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#空白final"><span class="nav-number">1.0.2.</span> <span class="nav-text">空白final</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final参数"><span class="nav-number">1.0.3.</span> <span class="nav-text">final参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final方法"><span class="nav-number">1.0.4.</span> <span class="nav-text">final方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final类"><span class="nav-number">1.0.5.</span> <span class="nav-text">final类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#继承和初始化"><span class="nav-number">1.0.6.</span> <span class="nav-text">继承和初始化</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -697,9 +728,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/';
-          this.page.identifier = '2018/09/10/influence-of-reorder-on-multithreading/';
-          this.page.title = '重排序对多线程的影响';
+          this.page.url = 'https://l1zp.github.io/2018/09/15/180915-java-final-keywords/';
+          this.page.identifier = '2018/09/15/180915-java-final-keywords/';
+          this.page.title = 'final关键字';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-l1zp-github-io.disqus.com/embed.js';

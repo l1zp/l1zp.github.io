@@ -257,6 +257,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2018/09/15/180915-java-final-keywords/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Light Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大四狗肉馆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/09/15/180915-java-final-keywords/" itemprop="url">
+                  final关键字
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T16:01:39+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/15/180915-java-final-keywords/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/15/180915-java-final-keywords/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="final数据"><a href="#final数据" class="headerlink" title="final数据"></a><code>final</code>数据</h3><ul>
+<li>对于基本类型，<code>final</code>使数值恒定不变</li>
+<li>对于对象引用，<code>final</code>一旦引用被初始化一个对象，就无法改变指向另一个对象。到那时对象其本身的值是可变的</li>
+</ul>
+<h5 id="关于static和final"><a href="#关于static和final" class="headerlink" title="关于static和final"></a>关于<code>static</code>和<code>final</code></h5><ul>
+<li><code>static</code> 主要是唯一性，<code>final</code>则是不可变</li>
+</ul>
+<h5 id="空白final"><a href="#空白final" class="headerlink" title="空白final"></a>空白<code>final</code></h5><p>声明为<code>final</code>但又未给定</p>
+<h5 id="final参数"><a href="#final参数" class="headerlink" title="final参数"></a><code>final</code>参数</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Gimzo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">spin</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FinalArguments</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">with</span><span class="params">(<span class="keyword">final</span> Gimzo gimzo)</span></span>&#123;</div><div class="line">        <span class="comment">//! g = new Gimzo(); // Illegal -- g is final</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">without</span><span class="params">(Gimzo gimzo)</span></span>&#123;</div><div class="line">        gimzo = <span class="keyword">new</span> Gimzo();</div><div class="line">        gimzo.spin();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// void f(final int i) &#123; i ++; &#125; // can't change</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> i + <span class="number">1</span>; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        FinalArguments bf = <span class="keyword">new</span> FinalArguments();</div><div class="line">        bf.without(<span class="keyword">null</span>);</div><div class="line">        bf.with(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a><code>final</code>方法</h5><p>把方法锁定，防止任何继承类修改它的含义。</p>
+<h5 id="final类"><a href="#final类" class="headerlink" title="final类"></a><code>final</code>类</h5><p>防止被继承</p>
+<h5 id="继承和初始化"><a href="#继承和初始化" class="headerlink" title="继承和初始化"></a>继承和初始化</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Insect</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">9</span>;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> j;</div><div class="line">    Insect()&#123;</div><div class="line">        System.out.println(<span class="string">"i = "</span> + i + <span class="string">", j = "</span> + j);</div><div class="line">        j = <span class="number">39</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> x1 = printInt(<span class="string">"static Insect.x1 initialized"</span>);</div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">printInt</span><span class="params">(String s)</span></span>&#123;</div><div class="line">        System.out.println(s);</div><div class="line">        <span class="keyword">return</span> <span class="number">47</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Beetle</span> <span class="keyword">extends</span> <span class="title">Insect</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> k = printInt(<span class="string">"Beetle.l initialized"</span>);</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Beetle</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"k = "</span> + k);</div><div class="line">        System.out.println(<span class="string">"j = "</span> + j);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> x2 = printInt(<span class="string">"static Beetle.x2 initialized"</span>);</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Beetle constructor"</span>);</div><div class="line">        Beetle b = <span class="keyword">new</span> Beetle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>加载<code>Beetle</code>类的过程中，编译器注意到它有一个基类。不管是否打算产生于一个基类的对象，这都要发生。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2018/09/10/influence-of-reorder-on-multithreading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1158,7 +1324,7 @@
       
         
           <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式通过一些特殊符号的帮助，使用户可以轻松快捷的完成查找、删除、替换等处理程序</p>
-<h2 id="正则表达式特殊符号"><a href="#正则表达式特殊符号" class="headerlink" title="正则表达式特殊符号"></a>正则表达式特殊符号</h2><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">[:alnum:]</span>代表英文大小写字母及数字</div><div class="line"><span class="string">[:alpha:]</span>代表英文大小写字母</div><div class="line"><span class="string">[:blank:]</span>代表空格和 tab 键</div><div class="line"><span class="string">[:cntrl:]</span>键盘上的控制按键，如 CR,LF,TAB,DEL</div><div class="line"><span class="string">[:digit:]</span>代表数字</div><div class="line"><span class="string">[:graph:]</span>代表空白字符以外的其他</div><div class="line"><span class="string">[:lower:]</span>小写字母</div><div class="line"><span class="string">[:print:]</span>可以被打印出来的任何字符</div><div class="line"><span class="string">[:punct:]</span>代表标点符号</div><div class="line"><span class="string">[:upper:]</span>代表大写字符</div><div class="line"><span class="string">[:space:]</span>任何会产生空白的字符如空格，tab,CR 等</div><div class="line"><span class="string">[:xdigit:]</span>代表 <span class="number">16</span> 进位的数字类型</div></pre></td></tr></table></figure>
+<h2 id="正则表达式特殊符号"><a href="#正则表达式特殊符号" class="headerlink" title="正则表达式特殊符号"></a>正则表达式特殊符号</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[:alnum:]代表英文大小写字母及数字</div><div class="line">[:alpha:]代表英文大小写字母</div><div class="line">[:blank:]代表空格和 tab 键</div><div class="line">[:cntrl:]键盘上的控制按键，如 CR,LF,TAB,DEL</div><div class="line">[:digit:]代表数字</div><div class="line">[:graph:]代表空白字符以外的其他</div><div class="line">[:lower:]小写字母</div><div class="line">[:print:]可以被打印出来的任何字符</div><div class="line">[:punct:]代表标点符号</div><div class="line">[:upper:]代表大写字符</div><div class="line">[:space:]任何会产生空白的字符如空格，tab,CR 等</div><div class="line">[:xdigit:]代表 16 进位的数字类型</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/21/basic-resgular-expressions/#more" rel="contents">
@@ -1323,10 +1489,10 @@
 <blockquote>
 <p>-t 指定密钥类型，默认是RSA，可以略去<br>-C 设置注释文字，这里用到的是邮箱<br>-f 指定文件储存的文件名</p>
 </blockquote>
-<p>上述代码省略<code>-f</code>，因此运行后会提示输入文件名保存生成的文件<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Generating <span class="keyword">public</span>/<span class="keyword">private</span> rsa key pair.</div><div class="line"># Enter <span class="keyword">file</span> <span class="keyword">in</span> which <span class="keyword">to</span> save the key (/c/Users/you/.ssh/id_rsa): [Press enter]</div></pre></td></tr></table></figure></p>
+<p>上述代码省略<code>-f</code>，因此运行后会提示输入文件名保存生成的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Generating public/private rsa key pair.</div><div class="line"># Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]</div></pre></td></tr></table></figure></p>
 <p>这时回车，使用默认文件名</p>
-<p>然后会提示设置密码，这个密码主要用于push文件。如果不输入密码，直接回车，之后push时就不需要输入密码<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty <span class="keyword">for</span> <span class="literal">no</span> passphrase):</div><div class="line"><span class="comment"># Enter same passphrase again:</span></div></pre></td></tr></table></figure></p>
-<p>之后显示如下代码：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Your</span> <span class="selector-tag">identification</span> <span class="selector-tag">has</span> <span class="selector-tag">been</span> <span class="selector-tag">saved</span> <span class="selector-tag">in</span> /<span class="selector-tag">c</span>/<span class="selector-tag">Users</span>/<span class="selector-tag">user</span>/<span class="selector-class">.ssh</span>/<span class="selector-tag">id_rsa</span>.</div><div class="line"># <span class="selector-tag">Your</span> <span class="selector-tag">public</span> <span class="selector-tag">key</span> <span class="selector-tag">has</span> <span class="selector-tag">been</span> <span class="selector-tag">saved</span> <span class="selector-tag">in</span> /<span class="selector-tag">c</span>/<span class="selector-tag">Users</span>/<span class="selector-tag">user</span>/<span class="selector-class">.ssh</span>/<span class="selector-tag">id_rsa</span><span class="selector-class">.pub</span>.</div><div class="line"># <span class="selector-tag">The</span> <span class="selector-tag">key</span> <span class="selector-tag">fingerprint</span> <span class="selector-tag">is</span>:</div><div class="line"># <span class="selector-tag">01</span><span class="selector-pseudo">:0f</span><span class="selector-pseudo">:f4</span><span class="selector-pseudo">:3b</span><span class="selector-pseudo">:ca</span><span class="selector-pseudo">:85</span><span class="selector-pseudo">:d6</span><span class="selector-pseudo">:17</span><span class="selector-pseudo">:a1</span><span class="selector-pseudo">:7d</span><span class="selector-pseudo">:f0</span><span class="selector-pseudo">:68</span><span class="selector-pseudo">:9d</span><span class="selector-pseudo">:f0</span><span class="selector-pseudo">:a2</span><span class="selector-pseudo">:db</span> <span class="selector-tag">user_email</span>@<span class="selector-tag">example</span><span class="selector-class">.com</span></div></pre></td></tr></table></figure></p>
+<p>然后会提示设置密码，这个密码主要用于push文件。如果不输入密码，直接回车，之后push时就不需要输入密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty for no passphrase):</div><div class="line"># Enter same passphrase again:</div></pre></td></tr></table></figure></p>
+<p>之后显示如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Your identification has been saved in /c/Users/user/.ssh/id_rsa.</div><div class="line"># Your public key has been saved in /c/Users/user/.ssh/id_rsa.pub.</div><div class="line"># The key fingerprint is:</div><div class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db user_email@example.com</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/19/ssk-key-github/#more" rel="contents">
@@ -1744,7 +1910,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1766,7 +1932,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
