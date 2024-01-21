@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"l1zp.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Linear Structures Once an item is added, it stays in that position relative to the other elements that came before and came after it. * stacks * queues * deques * lists Stack abstract data type  Satck">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear Data Structure">
+<meta property="og:url" content="https://l1zp.github.io/2017/06/26/linear-data-structure/index.html">
+<meta property="og:site_name" content="Singularity">
+<meta property="og:description" content="Linear Structures Once an item is added, it stays in that position relative to the other elements that came before and came after it. * stacks * queues * deques * lists Stack abstract data type  Satck">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-06-26T12:22:40.000Z">
+<meta property="article:modified_time" content="2024-01-21T14:17:11.050Z">
+<meta property="article:author" content="Light Lee">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://l1zp.github.io/2017/06/26/linear-data-structure/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://l1zp.github.io/2017/06/26/linear-data-structure/","path":"2017/06/26/linear-data-structure/","title":"Linear Data Structure"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linear Data Structure | Singularity</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Singularity</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-structures"><span class="nav-number">1.</span> <span class="nav-text">Linear Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack-abstract-data-type"><span class="nav-number">1.1.</span> <span class="nav-text">Stack abstract data type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue-abstract-data-type"><span class="nav-number">1.2.</span> <span class="nav-text">Queue abstract data type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deque"><span class="nav-number">1.3.</span> <span class="nav-text">deque</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lists"><span class="nav-number">1.4.</span> <span class="nav-text">Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#the-unordered-list"><span class="nav-number">1.4.1.</span> <span class="nav-text">The Unordered List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#the-ordered-list"><span class="nav-number">1.4.2.</span> <span class="nav-text">The Ordered List</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#about-the-do-while-loop-in-python-there-is-no-do-while-loop-in-python-so-when-can-just-do-as-this"><span class="nav-number">1.5.</span> <span class="nav-text">about
+the do-while loop in Python, there is no do-while loop in Python, so
+when can just do as this:</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Light Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://l1zp.github.io/2017/06/26/linear-data-structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Light Lee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Singularity">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linear Data Structure | Singularity">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linear Data Structure
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-06-26 20:22:40" itemprop="dateCreated datePublished" datetime="2017-06-26T20:22:40+08:00">2017-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-21 22:17:11" itemprop="dateModified" datetime="2024-01-21T22:17:11+08:00">2024-01-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Structure/" itemprop="url" rel="index"><span itemprop="name">Data Structure</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="linear-structures">Linear Structures</h2>
+<p>Once an item is added, it stays in that position relative to the
+other elements that came before and came after it. * stacks * queues *
+deques * lists</p>
+<h3 id="stack-abstract-data-type">Stack abstract data type</h3>
+<ul>
+<li><code>Satck()</code> return empty stack</li>
+<li><code>push(item)</code> return nothing</li>
+<li><code>pop()</code> return the item</li>
+<li><code>peek()</code> returns the top item from the stack but does not
+remove it.</li>
+<li><code>isEmpty()</code></li>
+<li><code>size()</code></li>
+</ul>
+<span id="more"></span>
+<p>The implementation is:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, item</span>):</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items[<span class="built_in">len</span>(self.items) - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.items)</span><br></pre></td></tr></table></figure>
+<h3 id="queue-abstract-data-type">Queue abstract data type</h3>
+<ul>
+<li><code>Queue()</code> return empty queue</li>
+<li><code>enqueue(item)</code></li>
+<li><code>dequeue()</code></li>
+<li><code>isEmpty()</code></li>
+<li><code>size()</code></li>
+</ul>
+<p>The implementation is: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Queue</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">enqueue</span>(<span class="params">self, item</span>):</span><br><span class="line">        self.items.insert(<span class="number">0</span>, item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dequeue</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.items)</span><br></pre></td></tr></table></figure></p>
+<h3 id="deque">deque</h3>
+<p>A deque, also known as a double-ended queue, is an ordered collection
+of items similar to the queue</p>
+<ul>
+<li><code>Deque()</code> return empty deque</li>
+<li><code>addFront(item)</code></li>
+<li><code>addRear(item)</code></li>
+<li><code>removeFront()</code> return the item</li>
+<li><code>removeRear()</code> return the item</li>
+<li><code>isEmpty()</code></li>
+<li><code>size()</code></li>
+</ul>
+<h3 id="lists">Lists</h3>
+<h4 id="the-unordered-list">The Unordered List</h4>
+<p>A list is a collection of items where each item holds a relative
+position with respect to the others. More specifically, we will refer to
+this type of list as an unordered list.</p>
+<ul>
+<li><code>List()</code> creates a new list that is empty. It needs no
+parameters and returns an empty list.</li>
+<li><code>add(item)</code> adds a new item to the list. It needs the
+item and returns nothing. Assume the item is not already in the
+list.</li>
+<li><code>remove(item)</code> removes the item from the list. It needs
+the item and modifies the list. Assume the item is present in the
+list.</li>
+<li><code>search(item)</code> searches for the item in the list. It
+needs the item and returns a boolean value.</li>
+<li><code>isEmpty()</code> tests to see whether the list is empty. It
+needs no parameters and returns a boolean value.</li>
+<li><code>size()</code> returns the number of items in the list. It
+needs no parameters and returns an integer.</li>
+<li><code>append(item)</code> adds a new item to the end of the list
+making it the last item in the collection. It needs the item and returns
+nothing. Assume the item is not already in the list.</li>
+<li><code>index(item)</code> returns the position of item in the list.
+It needs the item and returns the index. Assume the item is in the
+list.</li>
+<li><code>insert(pos,item)</code> adds a new item to the list at
+position pos. It needs the item and returns nothing. Assume the item is
+not already in the list and there are enough existing items to have
+position pos.</li>
+<li><code>pop()</code> removes and returns the last item in the list. It
+needs nothing and returns an item. Assume the list has at least one
+item.</li>
+<li><code>pop(pos)</code> removes and returns the item at position pos.
+It needs the position and returns the item. Assume the item is in the
+list.</li>
+</ul>
+<p>Implementation Linked Lists <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, initData</span>):</span><br><span class="line">        self.data = initData</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getData</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.data</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getNext</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setData</span>(<span class="params">self, newData</span>):</span><br><span class="line">        self.data = newData</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setNext</span>(<span class="params">self, newNode</span>):</span><br><span class="line">        self.<span class="built_in">next</span> = newNode</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UnorderedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.head = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.head == <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self, item</span>):</span><br><span class="line">        temp = Node(item)</span><br><span class="line">        temp.setNext(self.head)</span><br><span class="line">        self.head = temp</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        current = self.head</span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span>:</span><br><span class="line">            current = current.getNext()</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self, item</span>):</span><br><span class="line">        current = self.head</span><br><span class="line">        found = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> item == current.getData():</span><br><span class="line">                found = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                current = current.getNext()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> found</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, item</span>):</span><br><span class="line">        current = self.head</span><br><span class="line">        found = <span class="literal">False</span></span><br><span class="line">        previous = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> item == current.getData():</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                previous = current</span><br><span class="line">                current = current.getNext()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> previous == <span class="literal">None</span>:</span><br><span class="line">                self.head = current.getNext()</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                previous.setNext(current.getNext())</span><br></pre></td></tr></table></figure></p>
+<p>Modify the append method to be O(1)</p>
+<h4 id="the-ordered-list">The Ordered List</h4>
+<p>The structure of an ordered list is a collection of items where each
+item holds a relative position that is based upon some underlying
+characteristic of the item.</p>
+<ul>
+<li><code>OrderedList()</code> creates a new ordered list that is empty.
+It needs no parameters and returns an empty list.</li>
+<li><code>add(item)</code> adds a new item to the list making sure that
+the order is preserved. It needs the item and returns nothing. Assume
+the item is not already in the list.</li>
+<li><code>remove(item)</code> removes the item from the list. It needs
+the item and modifies the list. Assume the item is present in the
+list.</li>
+<li><code>search(item)</code> searches for the item in the list. It
+needs the item and returns a boolean value.</li>
+<li><code>isEmpty()</code> tests to see whether the list is empty. It
+needs no parameters and returns a boolean value.</li>
+<li><code>size()</code> returns the number of items in the list. It
+needs no parameters and returns an integer.</li>
+<li><code>index(item)</code> returns the position of item in the list.
+It needs the item and returns the index. Assume the item is in the
+list.</li>
+<li><code>pop()</code> removes and returns the last item in the list. It
+needs nothing and returns an item. Assume the list has at least one
+item.</li>
+<li><code>pop(pos)</code> removes and returns the item at position pos.
+It needs the position and returns the item. Assume the item is in the
+list.</li>
+</ul>
+<p>implement</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Node <span class="keyword">import</span> Node</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OrderedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.head = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self, item</span>):</span><br><span class="line">        current = self.head</span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> current.getData() == item:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> current.getData() &gt; item:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">            current = current.getNext()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self,item</span>):</span><br><span class="line">        current = self.head</span><br><span class="line">        previous = <span class="literal">None</span></span><br><span class="line">        stop = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span> <span class="keyword">and</span> <span class="keyword">not</span> stop:</span><br><span class="line">            <span class="keyword">if</span> current.getData() &gt; item:</span><br><span class="line">                stop = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                previous = current</span><br><span class="line">                current = current.getNext()</span><br><span class="line"></span><br><span class="line">        temp = Node(item)</span><br><span class="line">        <span class="keyword">if</span> previous == <span class="literal">None</span>:</span><br><span class="line">            temp.setNext(self.head)</span><br><span class="line">            self.head = temp</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            temp.setNext(current)</span><br><span class="line">            previous.setNext(temp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.head == <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        current = self.head</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span>:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            current = current.getNext()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+<h3
+id="about-the-do-while-loop-in-python-there-is-no-do-while-loop-in-python-so-when-can-just-do-as-this">about
+the do-while loop in Python, there is no do-while loop in Python, so
+when can just do as this:</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    stuff()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> condition():</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>equals: <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    stuff()</span><br><span class="line">&#125; <span class="keyword">while</span> (condition())</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/06/21/basic-resgular-expressions/" rel="prev" title="正则表达式基础介绍">
+                  <i class="fa fa-angle-left"></i> 正则表达式基础介绍
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/06/30/machine-learning-w5/" rel="next" title="ML(5) NN:Learning">
+                  ML(5) NN:Learning <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Light Lee</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
